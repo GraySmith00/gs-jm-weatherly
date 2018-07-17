@@ -1,32 +1,60 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-import CurrentWeather from './CurrentWeather'
+import CurrentWeather from './CurrentWeather';
+import {
+  city,
+  currentCondition,
+  currentDay,
+  currentTempF,
+  expHigh,
+  expLow,
+  summary
+} from '../utils/helpers';
 
-// let fakeData = {
-//   city: 'Denver',
-//   state: 'CO',
-//   currentCondition: 'Sunny',
-//   currentDay: 'Tuesday',
-//   currentTemp: 90, 
-//   expHigh: 98,
-//   expLow: 68,
-//   summary: 'Windy with a chance of late night showers'
-// }
-
+console.log(city);
 
 class App extends Component {
   constructor() {
     super();
-    let { city, currentCondition, currentDay, currentTemp, expHigh, expLow, summary } = fakeData;
-    this.state = {city, currentCondition, currentDay, currentTemp, expHigh, expLow, summary}
+
+    this.state = {
+      city: '',
+      currentCondition: '',
+      currentDay: '',
+      currentTemp: null,
+      expHigh: null,
+      expLow: null,
+      summary: ''
+    };
   }
+
+  setCity = () => {
+    this.setState({
+      city,
+      currentCondition,
+      currentDay,
+      currentTemp: currentTempF,
+      expHigh,
+      expLow,
+      summary
+    });
+  };
+
   render() {
-    let { city, currentCondition, currentDay, currentTemp, expHigh, expLow, summary } = this.state;
+    let {
+      city,
+      currentCondition,
+      currentDay,
+      currentTemp,
+      expHigh,
+      expLow,
+      summary
+    } = this.state;
     return (
       <div className="App">
-        <CurrentWeather 
-          city={city} 
-          currentCondition={currentCondition}  
+        <CurrentWeather
+          city={city}
+          currentCondition={currentCondition}
           currentTemp={currentTemp}
           expHigh={expHigh}
           expLow={expLow}
