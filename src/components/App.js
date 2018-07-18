@@ -10,10 +10,9 @@ import {
   expLow,
   summary
 } from '../utils/helpers';
+import { key } from '../variables';
 
 import Search from './Search';
-
-console.log(city);
 
 class App extends Component {
   constructor() {
@@ -32,15 +31,23 @@ class App extends Component {
 
   setCity = () => {
     this.setState({
-      city: 'Denver',
-      currentCondition: 'Warmish',
-      currentDay: 'Tuesday',
+      city,
+      currentCondition,
+      currentDay,
       currentTemp: currentTempF,
       expHigh,
       expLow,
       summary
     });
   };
+
+  componentDidMount() {
+    fetch(
+      `http://api.wunderground.com/api/${key}/conditions/q/CA/San_Francisco.json`
+    )
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }
 
   render() {
     let {
@@ -52,6 +59,7 @@ class App extends Component {
       expLow,
       summary
     } = this.state;
+
     return (
       <div className="App">
         <CurrentWeather
