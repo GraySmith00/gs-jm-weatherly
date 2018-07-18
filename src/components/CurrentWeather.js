@@ -9,7 +9,6 @@ const CurrentWeather = (props) => {
       <p> {props.expHigh} </p>
       <p> {props.expLow} </p>
       <p> {props.summary} </p>
-
     </div>
     )
 }
