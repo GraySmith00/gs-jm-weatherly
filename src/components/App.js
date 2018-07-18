@@ -11,6 +11,8 @@ import {
   summary
 } from '../utils/helpers';
 
+import Search from './Search';
+
 console.log(city);
 
 class App extends Component {
@@ -30,9 +32,9 @@ class App extends Component {
 
   setCity = () => {
     this.setState({
-      city,
-      currentCondition,
-      currentDay,
+      city: 'Denver',
+      currentCondition: 'Warmish',
+      currentDay: 'Tuesday',
       currentTemp: currentTempF,
       expHigh,
       expLow,
@@ -60,6 +62,7 @@ class App extends Component {
           expLow={expLow}
           summary={summary}
         />
+        <Search  />
       </div>
     );
   }
