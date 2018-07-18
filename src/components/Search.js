@@ -11,7 +11,12 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.setCity()}>
+        <form 
+          onSubmit={(e ) => {
+            e.preventDefault();
+            this.props.setCity()
+          }} 
+          >
           <button>SUBMIT</button>
         </form>
       </div>

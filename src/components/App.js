@@ -62,7 +62,7 @@ class App extends Component {
           expLow={expLow}
           summary={summary}
         />
-        <Search  />
+        <Search setCity={this.setCity} />
       </div>
     );
   }
