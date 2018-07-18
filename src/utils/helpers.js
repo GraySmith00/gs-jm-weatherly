@@ -1,7 +1,13 @@
-const mockData = require('./mockData');
+const data = require('./data');
 
-const { current_observation: current, forecast } = mockData;
-const { simpleforecast: simple, txt_forecast: txt } = mockData.forecast;
+fetch('http://api.wunderground.com/api/${key}/conditions/q/CA/San_Francisco.json')
+  .then(res => res.json())
+  .then(data => 
+
+
+const { current_observation: current, forecast } = data;
+const { simpleforecast: simple, txt_forecast: txt } = data.forecast;
+
 
 export const city = (() => {
   return current.display_location.city;
@@ -42,3 +48,5 @@ export const expHigh = (() =>
 export const expLow = (() => parseInt(simple.forecastday[0].low.fahrenheit))();
 
 export const summary = (() => txt.forecastday[0].fcttext_metric)();
+
+) //closing fetch call
