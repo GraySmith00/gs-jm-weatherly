@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import CurrentWeather from './CurrentWeather';
-import {
-  city,
-  currentCondition,
-  currentDay,
-  currentTempF,
-  expHigh,
-  expLow,
-  summary
-} from '../utils/helpers';
+import cleanData from '../utils/helpers';
 import { key } from '../variables';
 
 import Search from './Search';
@@ -30,24 +22,32 @@ class App extends Component {
   }
 
   setCity = () => {
-    this.setState({
-      city,
-      currentCondition,
-      currentDay,
-      currentTemp: currentTempF,
-      expHigh,
-      expLow,
-      summary
-    });
-  };
-
-  componentDidMount() {
     fetch(
-      `http://api.wunderground.com/api/${key}/conditions/q/CA/San_Francisco.json`
+      `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/IL/Chicago.json`
     )
       .then(res => res.json())
-      .then(data => console.log(data));
-  }
+      .then(data => {
+        const cleanDataObj = cleanData(data);
+        const {
+          city,
+          currentCondition,
+          currentDay,
+          currentTempF,
+          expHigh,
+          expLow,
+          summary
+        } = cleanDataObj;
+        this.setState({
+          city,
+          currentCondition,
+          currentDay,
+          currentTemp: currentTempF,
+          expHigh,
+          expLow,
+          summary
+        });
+      });
+  };
 
   render() {
     let {
