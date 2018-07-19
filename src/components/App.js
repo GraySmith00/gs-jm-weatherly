@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import CurrentWeather from './CurrentWeather';
-import {
-  city,
-  currentCondition,
-  currentDay,
-  currentTempF,
-  expHigh,
-  expLow,
-  summary
-} from '../utils/helpers';
+import cleanData from '../utils/helpers';
+import { key } from '../variables';
 
 import Search from './Search';
-
-console.log(city);
 
 class App extends Component {
   constructor() {
@@ -21,6 +12,7 @@ class App extends Component {
 
     this.state = {
       city: '',
+      state: '',
       currentCondition: '',
       currentDay: '',
       currentTemp: null,
@@ -30,21 +22,40 @@ class App extends Component {
     };
   }
 
-  setCity = () => {
-    this.setState({
-      city: 'Denver',
-      currentCondition: 'Warmish',
-      currentDay: 'Tuesday',
-      currentTemp: currentTempF,
-      expHigh,
-      expLow,
-      summary
-    });
+  setLocation = location => {
+    fetch(
+      `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`
+    )
+      .then(res => res.json())
+      .then(data => {
+        const cleanDataObj = cleanData(data);
+        const {
+          city,
+          state,
+          currentCondition,
+          currentDay,
+          currentTempF,
+          expHigh,
+          expLow,
+          summary
+        } = cleanDataObj;
+        this.setState({
+          city,
+          state,
+          currentCondition,
+          currentDay,
+          currentTemp: currentTempF,
+          expHigh,
+          expLow,
+          summary
+        });
+      });
   };
 
   render() {
     let {
       city,
+      state,
       currentCondition,
       currentDay,
       currentTemp,
@@ -52,17 +63,19 @@ class App extends Component {
       expLow,
       summary
     } = this.state;
+
     return (
       <div className="App">
         <CurrentWeather
           city={city}
+          state={state}
           currentCondition={currentCondition}
           currentTemp={currentTemp}
           expHigh={expHigh}
           expLow={expLow}
           summary={summary}
         />
-        <Search setCity={this.setCity} />
+        <Search setLocation={this.setLocation} />
       </div>
     );
   }

@@ -1,18 +1,18 @@
-module.exports = {
+const mockData = {
   response: {
     version: '0.1',
     termsofService: 'http://www.wunderground.com/weather/api/d/terms.html',
     features: {
       conditions: 1,
       hourly: 1,
-      forecast10day: 1,
-    },
+      forecast10day: 1
+    }
   },
   current_observation: {
     image: {
       url: 'http://icons.wxug.com/graphics/wu2/logo_130x80.png',
       title: 'Weather Underground',
-      link: 'http://www.wunderground.com',
+      link: 'http://www.wunderground.com'
     },
     display_location: {
       full: 'Louisville, KY',
@@ -26,7 +26,7 @@ module.exports = {
       wmo: '99999',
       latitude: '38.25000000',
       longitude: '-85.76000214',
-      elevation: '128.0',
+      elevation: '128.0'
     },
     observation_location: {
       full:
@@ -37,7 +37,7 @@ module.exports = {
       country_iso3166: 'US',
       latitude: '38.242832',
       longitude: '-85.749374',
-      elevation: '459 ft',
+      elevation: '459 ft'
     },
     estimated: {},
     station_id: 'KKYLOUIS193',
@@ -93,7 +93,7 @@ module.exports = {
       'http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KKYLOUIS193',
     ob_url:
       'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=38.242832,-85.749374',
-    nowcast: '',
+    nowcast: ''
   },
   forecast: {
     txt_forecast: {
@@ -107,7 +107,7 @@ module.exports = {
           fcttext: 'Sun and clouds mixed. High 51F. Winds NE at 10 to 15 mph.',
           fcttext_metric:
             'Mostly cloudy skies this morning will become partly cloudy this afternoon. High 11C. Winds NE at 15 to 25 km/h.',
-          pop: '0',
+          pop: '0'
         },
         {
           period: 1,
@@ -117,7 +117,7 @@ module.exports = {
           fcttext: 'Clear skies. Low 32F. Winds ENE at 5 to 10 mph.',
           fcttext_metric:
             'Clear skies. Low around 0C. Winds ENE at 10 to 15 km/h.',
-          pop: '0',
+          pop: '0'
         },
         {
           period: 2,
@@ -128,7 +128,7 @@ module.exports = {
             'Sunshine and some clouds. High around 55F. Winds SE at 5 to 10 mph.',
           fcttext_metric:
             'Generally sunny despite a few afternoon clouds. High 13C. Winds SSE at 10 to 15 km/h.',
-          pop: '10',
+          pop: '10'
         },
         {
           period: 3,
@@ -139,7 +139,7 @@ module.exports = {
             'Cloudy in the evening, then off and on rain showers after midnight. Low 51F. Winds SSW at 5 to 10 mph. Chance of rain 40%.',
           fcttext_metric:
             'Considerable cloudiness. Occasional rain showers later at night. Low 11C. Winds S at 10 to 15 km/h. Chance of rain 40%.',
-          pop: '40',
+          pop: '40'
         },
         {
           period: 4,
@@ -150,7 +150,7 @@ module.exports = {
             'Cloudy in the morning, then off and on rain showers during the afternoon hours. High 57F. Winds SSW at 5 to 10 mph. Chance of rain 80%.',
           fcttext_metric:
             'Cloudy with occasional showers for the afternoon. High 14C. Winds SSW at 10 to 15 km/h. Chance of rain 80%.',
-          pop: '80',
+          pop: '80'
         },
         {
           period: 5,
@@ -161,7 +161,7 @@ module.exports = {
             'Rain. Low 44F. ESE winds shifting to N at 10 to 15 mph. Chance of rain 100%. Rainfall near an inch. Locally heavy rainfall possible.',
           fcttext_metric:
             'Cloudy with periods of rain. Low 7C. Winds NNE at 10 to 15 km/h. Chance of rain 100%. Rainfall near 25mm. Locally heavy rainfall possible.',
-          pop: '100',
+          pop: '100'
         },
         {
           period: 6,
@@ -172,7 +172,7 @@ module.exports = {
             'Cloudy with periods of rain. High 47F. Winds NNW at 10 to 15 mph. Chance of rain 90%. Rainfall around a quarter of an inch.',
           fcttext_metric:
             'Periods of rain. High 9C. Winds NNW at 15 to 25 km/h. Chance of rain 90%. Rainfall near 6mm.',
-          pop: '90',
+          pop: '90'
         },
         {
           period: 7,
@@ -181,7 +181,7 @@ module.exports = {
           title: 'Saturday Night',
           fcttext: 'Overcast. Low around 30F. Winds N at 5 to 10 mph.',
           fcttext_metric: 'Cloudy. Low -1C. Winds N at 10 to 15 km/h.',
-          pop: '10',
+          pop: '10'
         },
         {
           period: 8,
@@ -192,7 +192,7 @@ module.exports = {
             'Cloudy. A few flurries or snow showers possible. High 37F. Winds NNW at 5 to 10 mph.',
           fcttext_metric:
             'Overcast. A few flurries or snow showers possible. High 3C. Winds NNW at 10 to 15 km/h.',
-          pop: '20',
+          pop: '20'
         },
         {
           period: 9,
@@ -203,7 +203,7 @@ module.exports = {
             'Mostly cloudy skies early, then partly cloudy after midnight. A few flurries or snow showers possible. Low 22F. Winds WNW at 10 to 20 mph.',
           fcttext_metric:
             'Mostly cloudy skies early will become partly cloudy late. A few flurries or snow showers possible. Low around -5C. Winds WNW at 15 to 30 km/h.',
-          pop: '20',
+          pop: '20'
         },
         {
           period: 10,
@@ -214,7 +214,7 @@ module.exports = {
             'Plentiful sunshine. High around 35F. Winds WSW at 10 to 20 mph.',
           fcttext_metric:
             'Generally sunny. High 2C. Winds WSW at 15 to 30 km/h.',
-          pop: '0',
+          pop: '0'
         },
         {
           period: 11,
@@ -225,7 +225,7 @@ module.exports = {
             'Partly cloudy early with increasing clouds overnight. Low 19F. Winds WSW at 5 to 10 mph.',
           fcttext_metric:
             'Partly cloudy early with increasing clouds overnight. Low -7C. Winds WSW at 10 to 15 km/h.',
-          pop: '0',
+          pop: '0'
         },
         {
           period: 12,
@@ -236,7 +236,7 @@ module.exports = {
             'Sunshine and clouds mixed. High 32F. Winds WNW at 5 to 10 mph.',
           fcttext_metric:
             'Partly cloudy. High near 0C. Winds light and variable.',
-          pop: '0',
+          pop: '0'
         },
         {
           period: 13,
@@ -247,7 +247,7 @@ module.exports = {
             'A few clouds overnight. Low around 20F. Winds N at 5 to 10 mph.',
           fcttext_metric:
             'A few clouds overnight. Low -6C. Winds N at 10 to 15 km/h.',
-          pop: '0',
+          pop: '0'
         },
         {
           period: 14,
@@ -258,7 +258,7 @@ module.exports = {
             'Intervals of clouds and sunshine. High 33F. Winds light and variable.',
           fcttext_metric:
             'Partly cloudy skies. High 1C. Winds light and variable.',
-          pop: '10',
+          pop: '10'
         },
         {
           period: 15,
@@ -269,7 +269,7 @@ module.exports = {
             'Cloudy skies with late-night snow showers. Low 26F. Winds light and variable. Chance of snow 40%. Snowfall around one inch.',
           fcttext_metric:
             'Cloudy with snow showers developing after midnight. Low -3C. Winds light and variable. Chance of snow 40%. Snowfall of 2-3cm.',
-          pop: '40',
+          pop: '40'
         },
         {
           period: 16,
@@ -280,7 +280,7 @@ module.exports = {
             'Cloudy with snow showers mainly during the morning. High near 35F. Winds NNE at 5 to 10 mph. Chance of snow 40%. About one inch of snow expected.',
           fcttext_metric:
             'Mainly cloudy with snow showers around in the morning. High 2C. Winds NNE at 10 to 15 km/h. Chance of snow 40%. 2-3cm of snow expected.',
-          pop: '40',
+          pop: '40'
         },
         {
           period: 17,
@@ -289,7 +289,7 @@ module.exports = {
           title: 'Thursday Night',
           fcttext: 'Cloudy. Low 23F. Winds N at 5 to 10 mph.',
           fcttext_metric: 'Cloudy. Low around -5C. Winds N at 10 to 15 km/h.',
-          pop: '20',
+          pop: '20'
         },
         {
           period: 18,
@@ -299,7 +299,7 @@ module.exports = {
           fcttext: 'Partly cloudy skies. High 31F. Winds W at 5 to 10 mph.',
           fcttext_metric:
             'Partly cloudy skies. High -1C. Winds W at 10 to 15 km/h.',
-          pop: '20',
+          pop: '20'
         },
         {
           period: 19,
@@ -310,9 +310,9 @@ module.exports = {
             'Cloudy. Snow showers developing after midnight. Low 18F. Winds ENE at 5 to 10 mph. Chance of snow 40%. About one inch of snow expected.',
           fcttext_metric:
             'Cloudy with snow showers developing after midnight. Low -7C. Winds ENE at 10 to 15 km/h. Chance of snow 40%. Snowfall of 2-3cm.',
-          pop: '40',
-        },
-      ],
+          pop: '40'
+        }
+      ]
     },
     simpleforecast: {
       forecastday: [
@@ -334,16 +334,16 @@ module.exports = {
             weekday: 'Wednesday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 1,
           high: {
             fahrenheit: '51',
-            celsius: '11',
+            celsius: '11'
           },
           low: {
             fahrenheit: '32',
-            celsius: '0',
+            celsius: '0'
           },
           conditions: 'Partly Cloudy',
           icon: 'partlycloudy',
@@ -352,43 +352,43 @@ module.exports = {
           pop: 0,
           qpf_allday: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_day: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_night: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           snow_allday: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 15,
             kph: 24,
             dir: 'NE',
-            degrees: 42,
+            degrees: 42
           },
           avewind: {
             mph: 11,
             kph: 18,
             dir: 'NE',
-            degrees: 42,
+            degrees: 42
           },
           avehumidity: 48,
           maxhumidity: 62,
-          minhumidity: 36,
+          minhumidity: 36
         },
         {
           date: {
@@ -408,16 +408,16 @@ module.exports = {
             weekday: 'Thursday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 2,
           high: {
             fahrenheit: '55',
-            celsius: '13',
+            celsius: '13'
           },
           low: {
             fahrenheit: '51',
-            celsius: '11',
+            celsius: '11'
           },
           conditions: 'Clear',
           icon: 'clear',
@@ -426,43 +426,43 @@ module.exports = {
           pop: 10,
           qpf_allday: {
             in: 0.02,
-            mm: 1,
+            mm: 1
           },
           qpf_day: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_night: {
             in: 0.02,
-            mm: 1,
+            mm: 1
           },
           snow_allday: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 10,
             kph: 16,
             dir: 'SE',
-            degrees: 146,
+            degrees: 146
           },
           avewind: {
             mph: 7,
             kph: 11,
             dir: 'SE',
-            degrees: 146,
+            degrees: 146
           },
           avehumidity: 65,
           maxhumidity: 76,
-          minhumidity: 54,
+          minhumidity: 54
         },
         {
           date: {
@@ -482,16 +482,16 @@ module.exports = {
             weekday: 'Friday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 3,
           high: {
             fahrenheit: '57',
-            celsius: '14',
+            celsius: '14'
           },
           low: {
             fahrenheit: '44',
-            celsius: '7',
+            celsius: '7'
           },
           conditions: 'Chance of Rain',
           icon: 'chancerain',
@@ -500,43 +500,43 @@ module.exports = {
           pop: 80,
           qpf_allday: {
             in: 0.91,
-            mm: 23,
+            mm: 23
           },
           qpf_day: {
             in: 0.07,
-            mm: 2,
+            mm: 2
           },
           qpf_night: {
             in: 0.84,
-            mm: 21,
+            mm: 21
           },
           snow_allday: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 10,
             kph: 16,
             dir: 'SSW',
-            degrees: 202,
+            degrees: 202
           },
           avewind: {
             mph: 9,
             kph: 14,
             dir: 'SSW',
-            degrees: 202,
+            degrees: 202
           },
           avehumidity: 84,
           maxhumidity: 89,
-          minhumidity: 78,
+          minhumidity: 78
         },
         {
           date: {
@@ -556,16 +556,16 @@ module.exports = {
             weekday: 'Saturday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 4,
           high: {
             fahrenheit: '47',
-            celsius: '8',
+            celsius: '8'
           },
           low: {
             fahrenheit: '30',
-            celsius: '-1',
+            celsius: '-1'
           },
           conditions: 'Rain',
           icon: 'rain',
@@ -574,43 +574,43 @@ module.exports = {
           pop: 90,
           qpf_allday: {
             in: 0.37,
-            mm: 9,
+            mm: 9
           },
           qpf_day: {
             in: 0.37,
-            mm: 9,
+            mm: 9
           },
           qpf_night: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           snow_allday: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 15,
             kph: 24,
             dir: 'NNW',
-            degrees: 345,
+            degrees: 345
           },
           avewind: {
             mph: 11,
             kph: 18,
             dir: 'NNW',
-            degrees: 345,
+            degrees: 345
           },
           avehumidity: 81,
           maxhumidity: 90,
-          minhumidity: 75,
+          minhumidity: 75
         },
         {
           date: {
@@ -630,16 +630,16 @@ module.exports = {
             weekday: 'Sunday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 5,
           high: {
             fahrenheit: '37',
-            celsius: '3',
+            celsius: '3'
           },
           low: {
             fahrenheit: '22',
-            celsius: '-6',
+            celsius: '-6'
           },
           conditions: 'Overcast',
           icon: 'cloudy',
@@ -648,43 +648,43 @@ module.exports = {
           pop: 20,
           qpf_allday: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_day: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_night: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           snow_allday: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 10,
             kph: 16,
             dir: 'NNW',
-            degrees: 333,
+            degrees: 333
           },
           avewind: {
             mph: 9,
             kph: 14,
             dir: 'NNW',
-            degrees: 333,
+            degrees: 333
           },
           avehumidity: 64,
           maxhumidity: 77,
-          minhumidity: 54,
+          minhumidity: 54
         },
         {
           date: {
@@ -704,16 +704,16 @@ module.exports = {
             weekday: 'Monday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 6,
           high: {
             fahrenheit: '35',
-            celsius: '2',
+            celsius: '2'
           },
           low: {
             fahrenheit: '19',
-            celsius: '-7',
+            celsius: '-7'
           },
           conditions: 'Clear',
           icon: 'clear',
@@ -722,43 +722,43 @@ module.exports = {
           pop: 0,
           qpf_allday: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_day: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_night: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           snow_allday: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 20,
             kph: 32,
             dir: 'WSW',
-            degrees: 252,
+            degrees: 252
           },
           avewind: {
             mph: 13,
             kph: 21,
             dir: 'WSW',
-            degrees: 252,
+            degrees: 252
           },
           avehumidity: 43,
           maxhumidity: 61,
-          minhumidity: 30,
+          minhumidity: 30
         },
         {
           date: {
@@ -778,16 +778,16 @@ module.exports = {
             weekday: 'Tuesday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 7,
           high: {
             fahrenheit: '32',
-            celsius: '0',
+            celsius: '0'
           },
           low: {
             fahrenheit: '20',
-            celsius: '-7',
+            celsius: '-7'
           },
           conditions: 'Partly Cloudy',
           icon: 'partlycloudy',
@@ -796,43 +796,43 @@ module.exports = {
           pop: 0,
           qpf_allday: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_day: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_night: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           snow_allday: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 10,
             kph: 16,
             dir: 'WNW',
-            degrees: 285,
+            degrees: 285
           },
           avewind: {
             mph: 6,
             kph: 10,
             dir: 'WNW',
-            degrees: 285,
+            degrees: 285
           },
           avehumidity: 41,
           maxhumidity: 56,
-          minhumidity: 31,
+          minhumidity: 31
         },
         {
           date: {
@@ -852,16 +852,16 @@ module.exports = {
             weekday: 'Wednesday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 8,
           high: {
             fahrenheit: '33',
-            celsius: '1',
+            celsius: '1'
           },
           low: {
             fahrenheit: '26',
-            celsius: '-3',
+            celsius: '-3'
           },
           conditions: 'Partly Cloudy',
           icon: 'partlycloudy',
@@ -870,43 +870,43 @@ module.exports = {
           pop: 10,
           qpf_allday: {
             in: 0.11,
-            mm: 3,
+            mm: 3
           },
           qpf_day: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_night: {
             in: 0.11,
-            mm: 3,
+            mm: 3
           },
           snow_allday: {
             in: 1.1,
-            cm: 2.8,
+            cm: 2.8
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 1.1,
-            cm: 2.8,
+            cm: 2.8
           },
           maxwind: {
             mph: 10,
             kph: 16,
             dir: 'ENE',
-            degrees: 76,
+            degrees: 76
           },
           avewind: {
             mph: 5,
             kph: 8,
             dir: 'ENE',
-            degrees: 76,
+            degrees: 76
           },
           avehumidity: 35,
           maxhumidity: 42,
-          minhumidity: 27,
+          minhumidity: 27
         },
         {
           date: {
@@ -926,16 +926,16 @@ module.exports = {
             weekday: 'Thursday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 9,
           high: {
             fahrenheit: '35',
-            celsius: '2',
+            celsius: '2'
           },
           low: {
             fahrenheit: '23',
-            celsius: '-5',
+            celsius: '-5'
           },
           conditions: 'Snow Showers',
           icon: 'snow',
@@ -944,43 +944,43 @@ module.exports = {
           pop: 40,
           qpf_allday: {
             in: 0.09,
-            mm: 2,
+            mm: 2
           },
           qpf_day: {
             in: 0.09,
-            mm: 2,
+            mm: 2
           },
           qpf_night: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           snow_allday: {
             in: 0.9,
-            cm: 2.3,
+            cm: 2.3
           },
           snow_day: {
             in: 0.9,
-            cm: 2.3,
+            cm: 2.3
           },
           snow_night: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           maxwind: {
             mph: 10,
             kph: 16,
             dir: 'NNE',
-            degrees: 27,
+            degrees: 27
           },
           avewind: {
             mph: 6,
             kph: 10,
             dir: 'NNE',
-            degrees: 27,
+            degrees: 27
           },
           avehumidity: 50,
           maxhumidity: 60,
-          minhumidity: 41,
+          minhumidity: 41
         },
         {
           date: {
@@ -1000,16 +1000,16 @@ module.exports = {
             weekday: 'Friday',
             ampm: 'PM',
             tz_short: 'EST',
-            tz_long: 'America/New_York',
+            tz_long: 'America/New_York'
           },
           period: 10,
           high: {
             fahrenheit: '31',
-            celsius: '-1',
+            celsius: '-1'
           },
           low: {
             fahrenheit: '18',
-            celsius: '-8',
+            celsius: '-8'
           },
           conditions: 'Partly Cloudy',
           icon: 'partlycloudy',
@@ -1018,46 +1018,46 @@ module.exports = {
           pop: 20,
           qpf_allday: {
             in: 0.07,
-            mm: 2,
+            mm: 2
           },
           qpf_day: {
             in: 0.0,
-            mm: 0,
+            mm: 0
           },
           qpf_night: {
             in: 0.07,
-            mm: 2,
+            mm: 2
           },
           snow_allday: {
             in: 0.9,
-            cm: 2.3,
+            cm: 2.3
           },
           snow_day: {
             in: 0.0,
-            cm: 0.0,
+            cm: 0.0
           },
           snow_night: {
             in: 0.9,
-            cm: 2.3,
+            cm: 2.3
           },
           maxwind: {
             mph: 10,
             kph: 16,
             dir: 'W',
-            degrees: 274,
+            degrees: 274
           },
           avewind: {
             mph: 7,
             kph: 11,
             dir: 'W',
-            degrees: 274,
+            degrees: 274
           },
           avehumidity: 64,
           maxhumidity: 87,
-          minhumidity: 51,
-        },
-      ],
-    },
+          minhumidity: 51
+        }
+      ]
+    }
   },
   hourly_forecast: [
     {
@@ -1088,7 +1088,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '47', metric: '8' },
       dewpoint: { english: '30', metric: '-1' },
@@ -1108,7 +1108,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.05', metric: '1018' },
+      mslp: { english: '30.05', metric: '1018' }
     },
     {
       FCTTIME: {
@@ -1138,7 +1138,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '49', metric: '9' },
       dewpoint: { english: '29', metric: '-2' },
@@ -1158,7 +1158,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.04', metric: '1017' },
+      mslp: { english: '30.04', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -1188,7 +1188,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '49', metric: '9' },
       dewpoint: { english: '27', metric: '-3' },
@@ -1208,7 +1208,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.03', metric: '1017' },
+      mslp: { english: '30.03', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -1238,7 +1238,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '51', metric: '11' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1258,7 +1258,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.03', metric: '1017' },
+      mslp: { english: '30.03', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -1288,7 +1288,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '50', metric: '10' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1308,7 +1308,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.03', metric: '1017' },
+      mslp: { english: '30.03', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -1338,7 +1338,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '48', metric: '9' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1358,7 +1358,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.03', metric: '1017' },
+      mslp: { english: '30.03', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -1388,7 +1388,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '45', metric: '7' },
       dewpoint: { english: '26', metric: '-3' },
@@ -1408,7 +1408,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.04', metric: '1017' },
+      mslp: { english: '30.04', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -1438,7 +1438,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '43', metric: '6' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1458,7 +1458,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.05', metric: '1018' },
+      mslp: { english: '30.05', metric: '1018' }
     },
     {
       FCTTIME: {
@@ -1488,7 +1488,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '41', metric: '5' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1508,7 +1508,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '1',
-      mslp: { english: '30.06', metric: '1018' },
+      mslp: { english: '30.06', metric: '1018' }
     },
     {
       FCTTIME: {
@@ -1538,7 +1538,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '39', metric: '4' },
       dewpoint: { english: '24', metric: '-4' },
@@ -1558,7 +1558,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '1',
-      mslp: { english: '30.07', metric: '1018' },
+      mslp: { english: '30.07', metric: '1018' }
     },
     {
       FCTTIME: {
@@ -1588,7 +1588,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '38', metric: '3' },
       dewpoint: { english: '24', metric: '-4' },
@@ -1608,7 +1608,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '1',
-      mslp: { english: '30.08', metric: '1019' },
+      mslp: { english: '30.08', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1638,7 +1638,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '37', metric: '3' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1658,7 +1658,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '2',
-      mslp: { english: '30.08', metric: '1019' },
+      mslp: { english: '30.08', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1688,7 +1688,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '37', metric: '3' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1708,7 +1708,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '2',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1738,7 +1738,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '36', metric: '2' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1758,7 +1758,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '2',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1788,7 +1788,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '36', metric: '2' },
       dewpoint: { english: '24', metric: '-4' },
@@ -1808,7 +1808,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '2',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1838,7 +1838,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '35', metric: '2' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1858,7 +1858,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '2',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1888,7 +1888,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '34', metric: '1' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1908,7 +1908,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '2',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1938,7 +1938,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '34', metric: '1' },
       dewpoint: { english: '25', metric: '-4' },
@@ -1958,7 +1958,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '3',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -1988,7 +1988,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '33', metric: '1' },
       dewpoint: { english: '25', metric: '-4' },
@@ -2008,7 +2008,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '3',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -2038,7 +2038,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '33', metric: '1' },
       dewpoint: { english: '25', metric: '-4' },
@@ -2058,7 +2058,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '3',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -2088,7 +2088,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '34', metric: '1' },
       dewpoint: { english: '25', metric: '-4' },
@@ -2108,7 +2108,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '3',
-      mslp: { english: '30.1', metric: '1019' },
+      mslp: { english: '30.1', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -2138,7 +2138,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '36', metric: '2' },
       dewpoint: { english: '26', metric: '-3' },
@@ -2158,7 +2158,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '1',
-      mslp: { english: '30.1', metric: '1019' },
+      mslp: { english: '30.1', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -2188,7 +2188,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '40', metric: '4' },
       dewpoint: { english: '26', metric: '-3' },
@@ -2208,7 +2208,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.1', metric: '1019' },
+      mslp: { english: '30.1', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -2238,7 +2238,7 @@ module.exports = {
         ampm: 'AM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '43', metric: '6' },
       dewpoint: { english: '28', metric: '-2' },
@@ -2258,7 +2258,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.09', metric: '1019' },
+      mslp: { english: '30.09', metric: '1019' }
     },
     {
       FCTTIME: {
@@ -2288,7 +2288,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '46', metric: '8' },
       dewpoint: { english: '31', metric: '-1' },
@@ -2308,7 +2308,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.07', metric: '1018' },
+      mslp: { english: '30.07', metric: '1018' }
     },
     {
       FCTTIME: {
@@ -2338,7 +2338,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '50', metric: '10' },
       dewpoint: { english: '34', metric: '1' },
@@ -2358,7 +2358,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '0',
-      mslp: { english: '30.04', metric: '1017' },
+      mslp: { english: '30.04', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -2388,7 +2388,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '52', metric: '11' },
       dewpoint: { english: '37', metric: '3' },
@@ -2408,7 +2408,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '1',
-      mslp: { english: '30.02', metric: '1017' },
+      mslp: { english: '30.02', metric: '1017' }
     },
     {
       FCTTIME: {
@@ -2438,7 +2438,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '53', metric: '12' },
       dewpoint: { english: '39', metric: '4' },
@@ -2458,7 +2458,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '2',
-      mslp: { english: '30.0', metric: '1016' },
+      mslp: { english: '30.0', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2488,7 +2488,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '53', metric: '12' },
       dewpoint: { english: '41', metric: '5' },
@@ -2508,7 +2508,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '4',
-      mslp: { english: '29.99', metric: '1016' },
+      mslp: { english: '29.99', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2538,7 +2538,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '52', metric: '11' },
       dewpoint: { english: '42', metric: '6' },
@@ -2558,7 +2558,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '7',
-      mslp: { english: '29.99', metric: '1016' },
+      mslp: { english: '29.99', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2588,7 +2588,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '52', metric: '11' },
       dewpoint: { english: '43', metric: '6' },
@@ -2608,7 +2608,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '9',
-      mslp: { english: '30.0', metric: '1016' },
+      mslp: { english: '30.0', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2638,7 +2638,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '52', metric: '11' },
       dewpoint: { english: '44', metric: '7' },
@@ -2658,7 +2658,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '10',
-      mslp: { english: '30.0', metric: '1016' },
+      mslp: { english: '30.0', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2688,7 +2688,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '52', metric: '11' },
       dewpoint: { english: '44', metric: '7' },
@@ -2708,7 +2708,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '14',
-      mslp: { english: '30.0', metric: '1016' },
+      mslp: { english: '30.0', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2738,7 +2738,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '53', metric: '12' },
       dewpoint: { english: '44', metric: '7' },
@@ -2758,7 +2758,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '16',
-      mslp: { english: '30.0', metric: '1016' },
+      mslp: { english: '30.0', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2788,7 +2788,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '53', metric: '12' },
       dewpoint: { english: '45', metric: '7' },
@@ -2808,7 +2808,7 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '24',
-      mslp: { english: '30.0', metric: '1016' },
+      mslp: { english: '30.0', metric: '1016' }
     },
     {
       FCTTIME: {
@@ -2838,7 +2838,7 @@ module.exports = {
         ampm: 'PM',
         tz: '',
         age: '',
-        UTCDATE: '',
+        UTCDATE: ''
       },
       temp: { english: '53', metric: '12' },
       dewpoint: { english: '46', metric: '8' },
@@ -2858,7 +2858,8 @@ module.exports = {
       qpf: { english: '0.0', metric: '0' },
       snow: { english: '0.0', metric: '0' },
       pop: '19',
-      mslp: { english: '30.0', metric: '1016' },
-    },
-  ],
+      mslp: { english: '30.0', metric: '1016' }
+    }
+  ]
 };
+export default mockData;
