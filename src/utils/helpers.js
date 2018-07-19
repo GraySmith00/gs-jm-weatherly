@@ -5,6 +5,7 @@ function cleanData(data) {
   const { simpleforecast: simple, txt_forecast: txt } = data.forecast;
   const cleanDataObj = {
     city: current.display_location.city,
+    state: current.display_location.state,
     currentCondition: current.weather,
     currentDay: simple.forecastday[0].date.weekday,
     currentTempF: Math.floor(current.temp_f),

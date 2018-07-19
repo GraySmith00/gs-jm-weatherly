@@ -12,6 +12,7 @@ class App extends Component {
 
     this.state = {
       city: '',
+      state: '',
       currentCondition: '',
       currentDay: '',
       currentTemp: null,
@@ -21,15 +22,16 @@ class App extends Component {
     };
   }
 
-  setCity = () => {
+  setLocation = location => {
     fetch(
-      `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/IL/Chicago.json`
+      `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`
     )
       .then(res => res.json())
       .then(data => {
         const cleanDataObj = cleanData(data);
         const {
           city,
+          state,
           currentCondition,
           currentDay,
           currentTempF,
@@ -39,6 +41,7 @@ class App extends Component {
         } = cleanDataObj;
         this.setState({
           city,
+          state,
           currentCondition,
           currentDay,
           currentTemp: currentTempF,
@@ -52,6 +55,7 @@ class App extends Component {
   render() {
     let {
       city,
+      state,
       currentCondition,
       currentDay,
       currentTemp,
@@ -64,13 +68,14 @@ class App extends Component {
       <div className="App">
         <CurrentWeather
           city={city}
+          state={state}
           currentCondition={currentCondition}
           currentTemp={currentTemp}
           expHigh={expHigh}
           expLow={expLow}
           summary={summary}
         />
-        <Search setCity={this.setCity} />
+        <Search setLocation={this.setLocation} />
       </div>
     );
   }

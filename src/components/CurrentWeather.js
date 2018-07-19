@@ -3,7 +3,9 @@ import React from 'react';
 const CurrentWeather = props => {
   return (
     <div>
-      <h1>Current Weather in {props.city}</h1>
+      <h1>
+        Current Weather in {props.city}, {props.state}
+      </h1>
       <p>{props.currentCondition}</p>
       <p>{props.currentTemp}</p>
       <p>{props.expHigh}</p>
