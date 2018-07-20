@@ -8,17 +8,6 @@ class Search extends Component {
     };
   }
 
-  // splitInput = () => {
-  //   const city = this.state.searchValue.split(', ')[0];
-  //   const state = this.state.searchValue.split(', ')[1];
-
-  //   this.setState({
-  //     searchValue: this.state.searchValue,
-  //     city: city,
-  //     state: state
-  //   });
-  // };
-
   render() {
     return (
       <div>
@@ -30,6 +19,7 @@ class Search extends Component {
         >
           <input
             type="text"
+            value={this.state.searchValue}
             onChange={e =>
               this.setState({ searchValue: e.target.value.replace(' ', '_') })
             }

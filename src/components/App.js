@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import CurrentWeather from './CurrentWeather';
-import cleanData from '../utils/helpers';
+import { cleanData, cleanSevenHourData } from '../utils/helpers';
 import { key } from '../variables';
 
 import Search from './Search';
@@ -18,7 +18,8 @@ class App extends Component {
       currentTemp: null,
       expHigh: null,
       expLow: null,
-      summary: ''
+      summary: '',
+      sevenHour: {}
     };
   }
 
@@ -39,6 +40,7 @@ class App extends Component {
           expLow,
           summary
         } = cleanDataObj;
+
         this.setState({
           city,
           state,
@@ -47,8 +49,10 @@ class App extends Component {
           currentTemp: currentTempF,
           expHigh,
           expLow,
-          summary
+          summary,
+          sevenHour: cleanSevenHourData(data)
         });
+        console.log(this.state.sevenHour);
       });
   };
 
