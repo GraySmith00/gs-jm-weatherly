@@ -52,7 +52,6 @@ class App extends Component {
           summary,
           sevenHour: cleanSevenHourData(data)
         });
-        console.log(this.state.sevenHour);
       });
   };
 

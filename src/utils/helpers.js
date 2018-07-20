@@ -17,13 +17,26 @@ export function cleanData(data) {
 }
 
 export function cleanSevenHourData(data) {
-  const obj = {};
-  data.hourly_forecast.map(hourForecast => {
-    const hour = hourForecast.FCTTIME.hour;
-    const projectedTemp = +hourForecast.temp.english;
-    obj[`hour-${hour}`] = projectedTemp;
+  return data.hourly_forecast.slice(0, 7).map(hourForecast => {
+    let hour = +hourForecast.FCTTIME.hour;
+
+    if (hour === 0) {
+      hour = '12am';
+    } else if (hour === 12) {
+      hour = '12pm';
+    } else if (hour > 12 && hour < 24) {
+      hour = `${hour - 12}pm`;
+    } else {
+      hour = `${hour}am`;
+    }
+
+    console.log(hour);
+    const obj = {
+      hour,
+      projectedTemp: +hourForecast.temp.english
+    };
+    return obj;
   });
-  return obj;
 }
 
 // export const currentDate = (() => {
