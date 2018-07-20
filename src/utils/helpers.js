@@ -1,6 +1,6 @@
 // import mockData from './mockData';
 
-function cleanData(data) {
+export function cleanData(data) {
   const { current_observation: current, forecast } = data;
   const { simpleforecast: simple, txt_forecast: txt } = data.forecast;
   const cleanDataObj = {
@@ -16,7 +16,15 @@ function cleanData(data) {
   return cleanDataObj;
 }
 
-export default cleanData;
+export function cleanSevenHourData(data) {
+  const obj = {};
+  data.hourly_forecast.map(hourForecast => {
+    const hour = hourForecast.FCTTIME.hour;
+    const projectedTemp = +hourForecast.temp.english;
+    obj[`hour-${hour}`] = projectedTemp;
+  });
+  return obj;
+}
 
 // export const currentDate = (() => {
 //   const month = simple.forecastday[0].date.monthname;
