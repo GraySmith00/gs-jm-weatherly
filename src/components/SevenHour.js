@@ -5,8 +5,8 @@ function SevenHour(props) {
 
   return (
     <div className="SevenHourList">
-      {props.sevenHourData.map(hour => {
-        return <HourCard hour={hour.hour} temp={hour.projectedTemp}/> 
+      {props.sevenHourData.map((hour, i) => {
+        return <HourCard key={`hour${i}`} hour={hour.hour} temp={hour.projectedTemp}/> 
       })}
     </div>
   )
