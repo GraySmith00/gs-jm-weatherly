@@ -25,9 +25,8 @@ class App extends Component {
   }
 
   setLocation = location => {
-    fetch(
-      `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`
-    )
+    const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
+    fetch(url)
       .then(res => res.json())
       .then(data => {
         const cleanDataObj = cleanData(data);
@@ -80,7 +79,7 @@ class App extends Component {
           summary={summary}
         />
         <Search setLocation={this.setLocation} />
-        <SevenHour sevenHourData={this.state.sevenHour}/>
+        <SevenHour sevenHourData={this.state.sevenHour} />
       </div>
     );
   }
