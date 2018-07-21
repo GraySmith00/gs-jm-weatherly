@@ -3,6 +3,7 @@ import '../css/App.css';
 import CurrentWeather from './CurrentWeather';
 import { cleanData, cleanSevenHourData } from '../utils/helpers';
 import { key } from '../variables';
+import SevenHour from './SevenHour';
 
 import Search from './Search';
 
@@ -19,7 +20,7 @@ class App extends Component {
       expHigh: null,
       expLow: null,
       summary: '',
-      sevenHour: {}
+      sevenHour: []
     };
   }
 
@@ -52,7 +53,6 @@ class App extends Component {
           summary,
           sevenHour: cleanSevenHourData(data)
         });
-        console.log(this.state.sevenHour);
       });
   };
 
@@ -80,6 +80,7 @@ class App extends Component {
           summary={summary}
         />
         <Search setLocation={this.setLocation} />
+        <SevenHour sevenHourData={this.state.sevenHour}/>
       </div>
     );
   }
