@@ -37,7 +37,21 @@ export function cleanSevenHourData(data) {
       projectedTemp: +hourForecast.temp.english
     };
     return obj;
+  console.log(cleanSevenHourData)
   });
+}
+
+export function cleanTenDayData(data) {
+  let tenDayArray = []
+  data.forecast.simpleforecast.forecastday.forEach(dayForecast => {
+    tenDayArray.push({
+      day: dayForecast.date.weekday,
+      expHigh: dayForecast.high.fahrenheit,
+      expLow: dayForecast.low.fahrenheit
+    })
+    return tenDayArray
+  })
+  return tenDayArray
 }
 
 // export const currentDate = (() => {

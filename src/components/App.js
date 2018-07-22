@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import CurrentWeather from './CurrentWeather';
-import { cleanData, cleanSevenHourData } from '../utils/helpers';
+import { cleanData, cleanSevenHourData, cleanTenDayData } from '../utils/helpers';
 import { key } from '../variables';
 import SevenHour from './SevenHour';
+import TenDay from './TenDay';
 
 import Search from './Search';
 
@@ -20,7 +21,8 @@ class App extends Component {
       expHigh: null,
       expLow: null,
       summary: '',
-      sevenHour: []
+      sevenHour: [],
+      tenDay: []
     };
   }
 
@@ -50,7 +52,8 @@ class App extends Component {
           expHigh,
           expLow,
           summary,
-          sevenHour: cleanSevenHourData(data)
+          sevenHour: cleanSevenHourData(data),
+          tenDay: cleanTenDayData(data)
         });
       });
   };
@@ -79,7 +82,9 @@ class App extends Component {
           summary={summary}
         />
         <Search setLocation={this.setLocation} />
-        <SevenHour sevenHourData={this.state.sevenHour} />
+        <SevenHour sevenHourData={this.state.sevenHour}/>
+        <TenDay tenDayData={this.state.tenDay}/>
+
       </div>
     );
   }
