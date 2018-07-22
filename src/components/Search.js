@@ -19,7 +19,6 @@ class Search extends Component {
         >
           <input
             type="text"
-            value={this.state.searchValue}
             onChange={e =>
               this.setState({ searchValue: e.target.value.replace(' ', '_') })
             }

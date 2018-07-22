@@ -19,6 +19,7 @@ export function cleanData(data) {
 export function cleanSevenHourData(data) {
   return data.hourly_forecast.slice(0, 7).map(hourForecast => {
     let hour = +hourForecast.FCTTIME.hour;
+    let icon = hourForecast.icon;
 
     if (hour === 0) {
       hour = '12am';
@@ -30,8 +31,8 @@ export function cleanSevenHourData(data) {
       hour = `${hour}am`;
     }
 
-    console.log(hour);
     const obj = {
+      icon,
       hour,
       projectedTemp: +hourForecast.temp.english
     };
