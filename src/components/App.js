@@ -45,7 +45,8 @@ class App extends Component {
           currentTempF,
           expHigh,
           expLow,
-          summary
+          summary,
+          icon
         } = cleanDataObj;
 
         this.setState({
@@ -58,20 +59,21 @@ class App extends Component {
           expHigh,
           expLow,
           summary,
+          icon,
           sevenHour: cleanSevenHourData(data),
           tenDay: cleanTenDayData(data)
         });
       });
   };
-  
-  setLocalStorage = (location) => {
-    localStorage.setItem("location", JSON.stringify(location))
-  }
+
+  setLocalStorage = location => {
+    localStorage.setItem('location', JSON.stringify(location));
+  };
 
   componentDidMount() {
-    let location = JSON.parse(localStorage.getItem("location")) || null;
-    if(location) {
-      this.setLocation(location)
+    let location = JSON.parse(localStorage.getItem('location')) || null;
+    if (location) {
+      this.setLocation(location);
     }
   }
 
@@ -86,7 +88,8 @@ class App extends Component {
       expLow,
       summary,
       sevenHour,
-      tenDay
+      tenDay,
+      icon
     } = this.state;
 
     return (
@@ -99,8 +102,12 @@ class App extends Component {
           expHigh={expHigh}
           expLow={expLow}
           summary={summary}
+          icon={icon}
         />
-        <Search setLocation={this.setLocation} setLocalStorage={this.setLocalStorage} />
+        <Search
+          setLocation={this.setLocation}
+          setLocalStorage={this.setLocalStorage}
+        />
         <SevenHour sevenHourData={sevenHour} />
         <TenDay tenDayData={tenDay} />
       </div>
