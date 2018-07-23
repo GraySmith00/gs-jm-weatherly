@@ -17,6 +17,7 @@ class App extends Component {
     super();
 
     this.state = {
+      location: '',
       city: '',
       state: '',
       currentCondition: '',
@@ -48,6 +49,7 @@ class App extends Component {
         } = cleanDataObj;
 
         this.setState({
+          location,
           city,
           state,
           currentCondition,
@@ -61,6 +63,17 @@ class App extends Component {
         });
       });
   };
+  
+  setLocalStorage = (location) => {
+    localStorage.setItem("location", JSON.stringify(location))
+  }
+
+  componentDidMount() {
+    let location = JSON.parse(localStorage.getItem("location")) || null;
+    if(location) {
+      this.setLocation(location)
+    }
+  }
 
   render() {
     let {
@@ -87,7 +100,7 @@ class App extends Component {
           expLow={expLow}
           summary={summary}
         />
-        <Search setLocation={this.setLocation} />
+        <Search setLocation={this.setLocation} setLocalStorage={this.setLocalStorage} />
         <SevenHour sevenHourData={sevenHour} />
         <TenDay tenDayData={tenDay} />
       </div>
