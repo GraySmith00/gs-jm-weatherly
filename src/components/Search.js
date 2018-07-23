@@ -15,6 +15,7 @@ class Search extends Component {
           onSubmit={e => {
             e.preventDefault();
             this.props.setLocation(this.state.searchValue);
+            this.props.setLocalStorage();
           }}
         >
           <input
