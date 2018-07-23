@@ -64,18 +64,16 @@ class App extends Component {
       });
   };
   
-  setLocalStorage = () => {
-    const location = this.state.location
-    console.log(this.state.location)
+  setLocalStorage = (location) => {
     localStorage.setItem("location", JSON.stringify(location))
   }
 
-  // componentDidMount() {
-  //   let location = JSON.parse(localStorage.getItem("location")) || null;
-  //   if(this.state.location) {
-  //     this.setLocation(this.state.location)
-  //   }
-  // }
+  componentDidMount() {
+    let location = JSON.parse(localStorage.getItem("location")) || null;
+    if(location) {
+      this.setLocation(location)
+    }
+  }
 
   render() {
     let {
