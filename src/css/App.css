@@ -5,15 +5,24 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   background-color: crimson;
   color: #fff;
   font-family: 'Roboto', sans-serif;
 }
 
 .page-wrapper {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 80%;
+  align-items: flex-start;
+  width: 65%;
+}
+
+#root {
+  width: 100%;
+}
+
+.app {
+  width: 100%;
 }

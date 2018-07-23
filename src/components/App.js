@@ -94,7 +94,7 @@ class App extends Component {
 
     if (this.state.location) {
       return (
-        <div className="App">
+        <div className="app">
           <Search
             setLocation={this.setLocation}
             setLocalStorage={this.setLocalStorage}
