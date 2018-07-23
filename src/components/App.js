@@ -27,7 +27,8 @@ class App extends Component {
       expLow: null,
       summary: '',
       sevenHour: [],
-      tenDay: []
+      tenDay: [],
+      tenDayDisplay: false
     };
   }
 
@@ -65,6 +66,18 @@ class App extends Component {
         });
       });
   };
+
+  showTenDayDisplay = () => {
+    this.setState({
+      tenDayDisplay: true
+    })
+  }
+
+  showSevenHourDisplay = () => {
+    this.setState({
+      tenDayDisplay: false
+    })
+  }
 
   setLocalStorage = location => {
     localStorage.setItem('location', JSON.stringify(location));
@@ -109,8 +122,16 @@ class App extends Component {
             summary={summary}
             icon={icon}
           />
-          <SevenHour sevenHourData={sevenHour} />
-          <TenDay tenDayData={tenDay} />
+          <div className="toggle-display">
+            <p onClick={this.showSevenHourDisplay}>7-hour</p>
+            <p>|</p>
+            <p onClick={this.showTenDayDisplay}>10-day</p>
+          </div>
+          { this.state.tenDayDisplay ?
+            <TenDay tenDayData={tenDay} />  
+            :
+            <SevenHour sevenHourData={sevenHour} />
+          }
         </div>
       );
     }

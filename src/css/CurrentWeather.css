@@ -12,6 +12,7 @@
 .current-weather h1 {
   font-size: 120px;
   margin: 0;
+  font-weight: 300;
 }
 
 .current-info h3 {
@@ -37,6 +38,7 @@
 
 .high-temp,
 .low-temp {
-  font-size: 3em;
   margin-left: 7px;
+  font-size: 3em;
+  font-weight: 100;
 }

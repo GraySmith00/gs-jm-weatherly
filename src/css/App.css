@@ -26,3 +26,10 @@ body {
 .app {
   width: 100%;
 }
+
+.toggle-display {
+  display: flex;
+  font-size: 1.5em;
+  justify-content: space-between;
+  width: 17%;
+}

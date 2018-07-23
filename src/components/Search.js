@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/Search.css';
 
 class Search extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search-wrapper">
         <form
           onSubmit={e => this.handleSubmit(e)}
         >
