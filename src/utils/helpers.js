@@ -37,21 +37,23 @@ export function cleanSevenHourData(data) {
       projectedTemp: +hourForecast.temp.english
     };
     return obj;
-  console.log(cleanSevenHourData)
+    console.log(cleanSevenHourData);
   });
 }
 
 export function cleanTenDayData(data) {
-  let tenDayArray = []
-  data.forecast.simpleforecast.forecastday.forEach(dayForecast => {
-    tenDayArray.push({
-      day: dayForecast.date.weekday,
-      expHigh: dayForecast.high.fahrenheit,
-      expLow: dayForecast.low.fahrenheit
-    })
-    return tenDayArray
-  })
-  return tenDayArray
+  return data.forecast.simpleforecast.forecastday.reduce(
+    (tenDayArray, dayForecast) => {
+      tenDayArray.push({
+        day: dayForecast.date.weekday,
+        expHigh: dayForecast.high.fahrenheit,
+        expLow: dayForecast.low.fahrenheit,
+        icon: dayForecast.icon
+      });
+      return tenDayArray;
+    },
+    []
+  );
 }
 
 // export const currentDate = (() => {
