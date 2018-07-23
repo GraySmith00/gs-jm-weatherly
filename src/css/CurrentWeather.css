@@ -1,0 +1,42 @@
+.current-weather {
+  margin-top: 5rem;
+}
+
+.current-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.current-weather h1 {
+  font-size: 120px;
+  margin: 0;
+}
+
+.current-info h3 {
+  font-size: 140px;
+  margin: 0;
+  font-weight: 100;
+}
+
+.weather-icon {
+  height: 4.5em;
+}
+
+.exp-high,
+.exp-low {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  height: 3em;
+  color: #fff;
+}
+
+.high-temp,
+.low-temp {
+  font-size: 3em;
+  margin-left: 7px;
+}

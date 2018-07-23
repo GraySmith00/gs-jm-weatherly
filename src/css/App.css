@@ -8,6 +8,7 @@ body {
   margin: 0;
   background-color: crimson;
   color: #fff;
+  font-family: 'Roboto', sans-serif;
 }
 
 .page-wrapper {
