@@ -8,15 +8,17 @@ class Search extends Component {
     };
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.setLocation(this.state.searchValue);
+    this.props.setLocalStorage(this.state.searchValue)
+  }
+
   render() {
     return (
       <div>
         <form
-          onSubmit={e => {
-            e.preventDefault();
-            this.props.setLocation(this.state.searchValue);
-            this.props.setLocalStorage(this.state.searchValue);
-          }}
+          onSubmit={e => this.handleSubmit(e)}
         >
           <input
             type="text"
