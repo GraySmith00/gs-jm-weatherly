@@ -1,0 +1,15 @@
+.day-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expected-temp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.temp-low {
+  opacity: 0.6;
+  margin-left: 5px;
+}
