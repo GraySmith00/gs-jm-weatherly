@@ -92,25 +92,34 @@ class App extends Component {
       icon
     } = this.state;
 
+    if (this.state.location) {
+      return (
+        <div className="App">
+          <Search
+            setLocation={this.setLocation}
+            setLocalStorage={this.setLocalStorage}
+          />
+          <CurrentWeather
+            city={city}
+            state={state}
+            currentCondition={currentCondition}
+            currentTemp={currentTemp}
+            expHigh={expHigh}
+            expLow={expLow}
+            summary={summary}
+            icon={icon}
+          />
+          <SevenHour sevenHourData={sevenHour} />
+          <TenDay tenDayData={tenDay} />
+        </div>
+      );
+    }
+
     return (
-      <div className="App">
-        <CurrentWeather
-          city={city}
-          state={state}
-          currentCondition={currentCondition}
-          currentTemp={currentTemp}
-          expHigh={expHigh}
-          expLow={expLow}
-          summary={summary}
-          icon={icon}
-        />
-        <Search
-          setLocation={this.setLocation}
-          setLocalStorage={this.setLocalStorage}
-        />
-        <SevenHour sevenHourData={sevenHour} />
-        <TenDay tenDayData={tenDay} />
-      </div>
+      <Search
+        setLocation={this.setLocation}
+        setLocalStorage={this.setLocalStorage}
+      />
     );
   }
 }
