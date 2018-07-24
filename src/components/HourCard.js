@@ -1,11 +1,12 @@
 import React from 'react';
+import '../css/HourCard.css';
 
 function HourCard(props) {
   return (
-    <div className="hourCard">
+    <div className="hour-card">
       <p>{props.hour}</p>
+      <img src={require(`../images/${props.icon}.png`)} alt="" />
       <p>{props.temp}</p>
-      <img src={require(`../../public/images/${props.icon}.png`)} alt="" />
     </div>
   );
 }

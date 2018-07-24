@@ -1,0 +1,14 @@
+.ten-day-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 1.5em 0;
+  margin-bottom: 4rem;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  border-top: 2px solid #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}

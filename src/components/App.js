@@ -27,7 +27,8 @@ class App extends Component {
       expLow: null,
       summary: '',
       sevenHour: [],
-      tenDay: []
+      tenDay: [],
+      tenDayDisplay: false
     };
   }
 
@@ -45,7 +46,8 @@ class App extends Component {
           currentTempF,
           expHigh,
           expLow,
-          summary
+          summary,
+          icon
         } = cleanDataObj;
 
         this.setState({
@@ -58,20 +60,33 @@ class App extends Component {
           expHigh,
           expLow,
           summary,
+          icon,
           sevenHour: cleanSevenHourData(data),
           tenDay: cleanTenDayData(data)
         });
       });
   };
-  
-  setLocalStorage = (location) => {
-    localStorage.setItem("location", JSON.stringify(location))
-  }
+
+  showTenDayDisplay = () => {
+    this.setState({
+      tenDayDisplay: true
+    });
+  };
+
+  showSevenHourDisplay = () => {
+    this.setState({
+      tenDayDisplay: false
+    });
+  };
+
+  setLocalStorage = location => {
+    localStorage.setItem('location', JSON.stringify(location));
+  };
 
   componentDidMount() {
-    let location = JSON.parse(localStorage.getItem("location")) || null;
-    if(location) {
-      this.setLocation(location)
+    let location = JSON.parse(localStorage.getItem('location')) || null;
+    if (location) {
+      this.setLocation(location);
     }
   }
 
@@ -86,24 +101,58 @@ class App extends Component {
       expLow,
       summary,
       sevenHour,
-      tenDay
+      tenDay,
+      icon
     } = this.state;
 
+    if (this.state.location) {
+      return (
+        <div
+          className="app"
+          style={{
+            backgroundImage:
+              'url(' +
+              require(`../images/background/${this.state.icon}.jpeg`) +
+              ')'
+          }}
+        >
+          <div className="overlay">
+            <div className="container">
+              <Search
+                setLocation={this.setLocation}
+                setLocalStorage={this.setLocalStorage}
+              />
+              <CurrentWeather
+                city={city}
+                state={state}
+                currentCondition={currentCondition}
+                currentTemp={currentTemp}
+                expHigh={expHigh}
+                expLow={expLow}
+                summary={summary}
+                icon={icon}
+              />
+              <div className="toggle-display">
+                <p onClick={this.showSevenHourDisplay}>7-hour</p>
+                <p>|</p>
+                <p onClick={this.showTenDayDisplay}>10-day</p>
+              </div>
+              {this.state.tenDayDisplay ? (
+                <TenDay tenDayData={tenDay} />
+              ) : (
+                <SevenHour sevenHourData={sevenHour} />
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
-      <div className="App">
-        <CurrentWeather
-          city={city}
-          state={state}
-          currentCondition={currentCondition}
-          currentTemp={currentTemp}
-          expHigh={expHigh}
-          expLow={expLow}
-          summary={summary}
-        />
-        <Search setLocation={this.setLocation} setLocalStorage={this.setLocalStorage} />
-        <SevenHour sevenHourData={sevenHour} />
-        <TenDay tenDayData={tenDay} />
-      </div>
+      <Search
+        setLocation={this.setLocation}
+        setLocalStorage={this.setLocalStorage}
+      />
     );
   }
 }

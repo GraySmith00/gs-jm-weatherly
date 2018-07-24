@@ -1,9 +1,11 @@
 import React from 'react';
 import HourCard from './HourCard';
 
+import '../css/SevenHour.css';
+
 function SevenHour(props) {
   return (
-    <div className="SevenHourList">
+    <div className="seven-hour-list">
       {props.sevenHourData.map((hour, i) => {
         return (
           <HourCard
