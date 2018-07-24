@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/CurrentWeather.css';
 
 function CurrentWeather(props) {
-  console.log(props.icon);
   return (
     <div className="current-weather">
       <h1>

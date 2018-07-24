@@ -40,5 +40,10 @@ body {
   display: flex;
   font-size: 1.5em;
   justify-content: space-between;
-  width: 17%;
+  width: 19%;
+  font-weight: 100;
+}
+
+.toggle-display p {
+  margin-bottom: 0.5em;
 }
