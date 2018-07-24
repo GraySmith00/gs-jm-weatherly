@@ -1,13 +1,14 @@
 .current-weather {
   margin-top: 3rem;
   font-family: 'Roboto', sans-serif;
+  width: 100%;
 }
 
 .current-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
+  width: 55%;
 }
 
 .current-weather h1 {
