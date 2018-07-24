@@ -12,23 +12,31 @@ class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.setLocation(this.state.searchValue);
-    this.props.setLocalStorage(this.state.searchValue)
+    this.resetSearch()
+  }
+
+  resetSearch = () => {
+    this.setState({
+      searchValue: ''
+    })
   }
 
   render() {
     return (
       <div className="search-wrapper">
-        <form
-          onSubmit={e => this.handleSubmit(e)}
-        >
+        <form onSubmit={e => this.handleSubmit(e)} >
           <input
             type="text"
+            value={this.state.searchValue}
             onChange={e =>
-              this.setState({ searchValue: e.target.value.replace(' ', '_') })
+              this.setState({ searchValue: e.target.value })
             }
           />
           <button>SUBMIT</button>
         </form>
+        {this.props.notFoundError &&
+          <p className="error-text">location not found</p>
+        } 
       </div>
     );
   }
