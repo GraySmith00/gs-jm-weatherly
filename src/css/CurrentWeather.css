@@ -1,12 +1,11 @@
 .current-weather {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .current-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 45%;
 }
 
 .current-weather h1 {

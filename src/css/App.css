@@ -6,7 +6,7 @@
 
 body {
   margin: 0 auto;
-  background-color: crimson;
+  /* background-color: crimson; */
   color: #fff;
   font-family: 'Roboto', sans-serif;
 }
@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 65%;
+  width: 100%;
 }
 
 #root {
@@ -25,6 +25,18 @@ body {
 
 .app {
   width: 100%;
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 65%;
 }
 
 .toggle-display {
