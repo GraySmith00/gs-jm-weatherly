@@ -35,7 +35,7 @@ export function cleanSevenHourData(data) {
     const obj = {
       icon,
       hour,
-      projectedTemp: +hourForecast.temp.english
+      projectedTemp: `${Math.floor(+hourForecast.temp.english)}° F`
     };
     return obj;
   });
@@ -46,8 +46,8 @@ export function cleanTenDayData(data) {
     (tenDayArray, dayForecast) => {
       tenDayArray.push({
         day: dayForecast.date.weekday,
-        expHigh: dayForecast.high.fahrenheit,
-        expLow: dayForecast.low.fahrenheit,
+        expHigh: `${dayForecast.high.fahrenheit}°`,
+        expLow: `${dayForecast.low.fahrenheit}°`,
         icon: dayForecast.icon
       });
       return tenDayArray;
