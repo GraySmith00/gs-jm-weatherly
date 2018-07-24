@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import CurrentWeather from './CurrentWeather';
 import {
-  cleanData,
+  currentWeatherData,
   cleanSevenHourData,
   cleanTenDayData
 } from '../utils/helpers';
@@ -18,14 +18,7 @@ class App extends Component {
 
     this.state = {
       location: '',
-      city: '',
-      state: '',
-      currentCondition: '',
-      currentDay: '',
-      currentTemp: null,
-      expHigh: null,
-      expLow: null,
-      summary: '',
+      currentWeather: {},
       sevenHour: [],
       tenDay: [],
       tenDayDisplay: false
@@ -37,30 +30,11 @@ class App extends Component {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        const cleanDataObj = cleanData(data);
-        const {
-          city,
-          state,
-          currentCondition,
-          currentDay,
-          currentTempF,
-          expHigh,
-          expLow,
-          summary,
-          icon
-        } = cleanDataObj;
+        const currentWeather = currentWeatherData(data);
 
         this.setState({
           location,
-          city,
-          state,
-          currentCondition,
-          currentDay,
-          currentTemp: currentTempF,
-          expHigh,
-          expLow,
-          summary,
-          icon,
+          currentWeather,
           sevenHour: cleanSevenHourData(data),
           tenDay: cleanTenDayData(data)
         });
@@ -92,17 +66,9 @@ class App extends Component {
 
   render() {
     let {
-      city,
-      state,
-      currentCondition,
-      currentDay,
-      currentTemp,
-      expHigh,
-      expLow,
-      summary,
+      currentWeather,
       sevenHour,
-      tenDay,
-      icon
+      tenDay
     } = this.state;
 
     if (this.state.location) {
@@ -112,7 +78,7 @@ class App extends Component {
           style={{
             backgroundImage:
               'url(' +
-              require(`../images/background/${this.state.icon}.jpeg`) +
+              require(`../images/background/${currentWeather.icon}.jpeg`) +
               ')'
           }}
         >
@@ -123,14 +89,7 @@ class App extends Component {
                 setLocalStorage={this.setLocalStorage}
               />
               <CurrentWeather
-                city={city}
-                state={state}
-                currentCondition={currentCondition}
-                currentTemp={currentTemp}
-                expHigh={expHigh}
-                expLow={expLow}
-                summary={summary}
-                icon={icon}
+                currentWeather={currentWeather}
               />
               <div className="toggle-display">
                 <p onClick={this.showSevenHourDisplay}>7-hour</p>
@@ -158,3 +117,5 @@ class App extends Component {
 }
 
 export default App;
+
+

@@ -1,6 +1,6 @@
 // import mockData from './mockData';
 
-export function cleanData(data) {
+export function currentWeatherData(data) {
   const { current_observation: current, forecast } = data;
   const { simpleforecast: simple, txt_forecast: txt } = data.forecast;
   const cleanDataObj = {
