@@ -12,6 +12,7 @@ class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.setLocation(this.state.searchValue);
+    this.resetSearch()
   }
 
   resetSearch = () => {
@@ -23,13 +24,12 @@ class Search extends Component {
   render() {
     return (
       <div className="search-wrapper">
-        <form
-          onSubmit={e => this.handleSubmit(e)}
-        >
+        <form onSubmit={e => this.handleSubmit(e)} >
           <input
             type="text"
+            value={this.state.searchValue}
             onChange={e =>
-              this.setState({ searchValue: e.target.value.replace(' ', '_') })
+              this.setState({ searchValue: e.target.value })
             }
           />
           <button>SUBMIT</button>

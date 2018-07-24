@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   setLocation = location => {
+    location = location.replace(' ', '_')
     const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
     fetch(url)
       .then(res => res.json())
