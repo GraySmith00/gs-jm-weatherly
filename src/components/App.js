@@ -21,7 +21,8 @@ class App extends Component {
       currentWeather: {},
       sevenHour: [],
       tenDay: [],
-      tenDayDisplay: false
+      tenDayDisplay: false,
+      notFoundError: false
     };
   }
 
@@ -36,9 +37,16 @@ class App extends Component {
           location,
           currentWeather,
           sevenHour: cleanSevenHourData(data),
-          tenDay: cleanTenDayData(data)
+          tenDay: cleanTenDayData(data),
+          notFoundError: false
         });
-      });
+          this.setLocalStorage(location)
+      })
+      .catch(error => {
+        this.setState({
+          notFoundError: true
+        })
+      })
   };
 
   showTenDayDisplay = () => {
@@ -68,7 +76,8 @@ class App extends Component {
     let {
       currentWeather,
       sevenHour,
-      tenDay
+      tenDay,
+      notFoundError
     } = this.state;
 
     if (this.state.location) {
@@ -86,7 +95,7 @@ class App extends Component {
             <div className="container">
               <Search
                 setLocation={this.setLocation}
-                setLocalStorage={this.setLocalStorage}
+                notFoundError={notFoundError}
               />
               <CurrentWeather
                 currentWeather={currentWeather}

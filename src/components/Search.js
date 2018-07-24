@@ -12,7 +12,12 @@ class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.setLocation(this.state.searchValue);
-    this.props.setLocalStorage(this.state.searchValue)
+  }
+
+  resetSearch = () => {
+    this.setState({
+      searchValue: ''
+    })
   }
 
   render() {
@@ -29,6 +34,9 @@ class Search extends Component {
           />
           <button>SUBMIT</button>
         </form>
+        {this.props.notFoundError &&
+          <p className="error-text">location not found</p>
+        } 
       </div>
     );
   }
