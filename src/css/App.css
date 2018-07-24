@@ -6,17 +6,8 @@
 
 body {
   margin: 0 auto;
-  /* background-color: crimson; */
   color: #fff;
   font-family: 'Roboto', sans-serif;
-}
-
-.page-wrapper {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
 }
 
 #root {
@@ -24,11 +15,17 @@ body {
 }
 
 .app {
+  height: 100vh;
   width: 100%;
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  height: 100vh;
 }
 
 .container {
