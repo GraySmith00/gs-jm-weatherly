@@ -23,11 +23,19 @@ body {
   background-position: center center;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
 .overlay {
   background: rgba(0, 0, 0, 0.4);
   height: 100%;
 }
 
+.header-container,
 .container {
   margin: 0 auto;
   display: flex;

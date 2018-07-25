@@ -52,6 +52,11 @@ class Search extends Component {
     return (
       <div className="search-container">
         <div className="search-wrapper">
+          {this.props.notFoundError && (
+            <p className="error-text">
+              Location not found 😢... use 'City, ST'
+            </p>
+          )}
           <form
             className="search-form"
             onSubmit={e => this.handleSubmit(e)}
@@ -73,9 +78,6 @@ class Search extends Component {
             </div>
             <input type="submit" value="Search" />
           </form>
-          {this.props.notFoundError && (
-            <p className="error-text">location not found</p>
-          )}
         </div>
       </div>
     );
