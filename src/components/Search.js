@@ -9,7 +9,8 @@ class Search extends Component {
     this.state = {
       searchValue: '',
       prefixTrie: null,
-      autoCompleteResults: []
+      autoCompleteResults: [],
+      cursor: -1
     };
   }
 
@@ -19,11 +20,44 @@ class Search extends Component {
     this.resetSearch();
   };
 
-  handleChange = e => {
+  handleInputChange = e => {
     this.setState({
       searchValue: e.target.value
     });
     this.showSearchResults(e.target.value);
+  };
+
+  handleSuggestionClick = e => {
+    e.preventDefault();
+    this.setState({
+      searchValue: e.target.innerText
+    });
+    this.props.setLocation(e.target.innerText);
+    this.resetSearch();
+  };
+
+  handleInputKeyDown = e => {
+    const { cursor, autoCompleteResults } = this.state;
+    if (e.keyCode === 38 && cursor > 0) {
+      this.setState({
+        cursor: this.state.cursor - 1
+      });
+    } else if (
+      e.keyCode === 40 &&
+      cursor < this.state.autoCompleteResults.length - 1
+    ) {
+      this.setState(prevState => ({
+        cursor: prevState.cursor + 1
+      }));
+    } else if (e.keyCode === 13) {
+      e.preventDefault();
+      this.setState({
+        searchValue: autoCompleteResults[cursor],
+        cursor: -1
+      });
+      this.props.setLocation(autoCompleteResults[cursor]);
+      this.resetSearch();
+    }
   };
 
   resetSearch = () => {
@@ -48,10 +82,15 @@ class Search extends Component {
   }
 
   render() {
-    const { autoCompleteResults } = this.state;
+    const { autoCompleteResults, searchValue, cursor } = this.state;
     return (
       <div className="search-container">
         <div className="search-wrapper">
+          {this.props.notFoundError && (
+            <p className="error-text">
+              Location not found 😢... use 'City, ST'
+            </p>
+          )}
           <form
             className="search-form"
             onSubmit={e => this.handleSubmit(e)}
@@ -63,19 +102,27 @@ class Search extends Component {
                 type="search"
                 placeholder="Denver, CO..."
                 value={this.state.searchValue}
-                onChange={e => this.handleChange(e)}
+                onChange={e => this.handleInputChange(e)}
+                onKeyDown={e => this.handleInputKeyDown(e)}
               />
-              <div className="autocomplete-list">
-                {autoCompleteResults.map(result => {
-                  return <div className="item">{result}</div>;
-                })}
-              </div>
+              {searchValue.length > 0 && (
+                <div className="autocomplete-list">
+                  {autoCompleteResults.map((result, i) => {
+                    return (
+                      <div
+                        key={`result${i}`}
+                        onClick={e => this.handleSuggestionClick(e)}
+                        className={cursor === i ? 'item active' : 'item'}
+                      >
+                        {result}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
             <input type="submit" value="Search" />
           </form>
-          {this.props.notFoundError && (
-            <p className="error-text">location not found</p>
-          )}
         </div>
       </div>
     );

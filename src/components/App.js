@@ -88,11 +88,15 @@ class App extends Component {
           }}
         >
           <div className="overlay">
+            <div className="header">
+              <div className="header-container">
+                <Search
+                  setLocation={this.setLocation}
+                  notFoundError={notFoundError}
+                />
+              </div>
+            </div>
             <div className="container">
-              <Search
-                setLocation={this.setLocation}
-                notFoundError={notFoundError}
-              />
               <CurrentWeather currentWeather={currentWeather} />
               <div className="toggle-display">
                 <p onClick={this.showSevenHourDisplay}>7-hour</p>
