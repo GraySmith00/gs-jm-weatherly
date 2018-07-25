@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import SevenHourForecast from '../components/SevenHour';
+import SevenHourFor from '../components/SevenHour';
 
 describe('SevenHour', () => {
 

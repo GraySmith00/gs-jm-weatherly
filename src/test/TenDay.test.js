@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import TenDayForecast from '../components/TenDay';
+import TenDayFor from '../components/TenDay';
 
 describe('TenDayForecast', () => {
 
