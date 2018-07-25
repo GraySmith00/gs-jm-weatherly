@@ -6,21 +6,31 @@ import TenDay from '../components/TenDay';
 describe('TenDayForecast', () => {
   let wrapper;
 
-  let mockData = [{}]
+  let mockData = [{}];
 
   beforeEach(() => {
-    wrapper = shallow(<TenDay tenDayData={[]} />)
-  })
+    wrapper = shallow(<TenDay tenDayData={[]} />);
+  });
 
   it('should exist', () => {
     expect(wrapper).toBeDefined();
-  })
+  });
 
   it('should render ten DayCard components', () => {
-    wrapper = mount(<TenDay tenDayData={[]} />)
-    console.log(wrapper.find('DayCard').length)
-    expect(wrapper.props().children.length).toEqual(10)
+    const tenDay = [
+      { day: 'Tuesday', expHigh: '98°', expLow: '45°', icon: 'foggy' },
+      { day: 'Wednesday', expHigh: '102°', expLow: '74°', icon: 'clear' }
+    ];
 
-    // expect(wrapper.find('DayCard').length).toEqual(10);
-  })
-})
+    wrapper = shallow(<TenDay tenDayData={tenDay} />);
+
+    const firstCard = wrapper.find('DayCard').first();
+    const lastCard = wrapper.find('DayCard').last();
+
+    expect(wrapper.find('DayCard').length).toEqual(2);
+    expect(firstCard.props().icon).toEqual('foggy');
+    expect(firstCard.props().high).toEqual('98°');
+    expect(lastCard.props().low).toEqual('74°');
+    expect(lastCard.props().day).toEqual('Wednesday');
+  });
+});
