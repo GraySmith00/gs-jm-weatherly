@@ -26,6 +26,15 @@ class Search extends Component {
     this.showSearchResults(e.target.value);
   };
 
+  handleSuggestionClick = e => {
+    e.preventDefault();
+    this.setState({
+      searchValue: e.target.innerText
+    });
+    this.props.setLocation(e.target.innerText);
+    this.resetSearch();
+  };
+
   resetSearch = () => {
     this.setState({
       searchValue: ''
@@ -48,7 +57,7 @@ class Search extends Component {
   }
 
   render() {
-    const { autoCompleteResults } = this.state;
+    const { autoCompleteResults, searchValue } = this.state;
     return (
       <div className="search-container">
         <div className="search-wrapper">
@@ -70,11 +79,21 @@ class Search extends Component {
                 value={this.state.searchValue}
                 onChange={e => this.handleChange(e)}
               />
-              <div className="autocomplete-list">
-                {autoCompleteResults.map(result => {
-                  return <div className="item">{result}</div>;
-                })}
-              </div>
+              {searchValue.length > 0 && (
+                <div className="autocomplete-list">
+                  {autoCompleteResults.map((result, i) => {
+                    return (
+                      <div
+                        key={`result${i}`}
+                        className="item"
+                        onClick={e => this.handleSuggestionClick(e)}
+                      >
+                        {result}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
             <input type="submit" value="Search" />
           </form>
