@@ -9,7 +9,8 @@ class Search extends Component {
     this.state = {
       searchValue: '',
       prefixTrie: null,
-      autoCompleteResults: []
+      autoCompleteResults: [],
+      cursor: -1
     };
   }
 
@@ -19,7 +20,7 @@ class Search extends Component {
     this.resetSearch();
   };
 
-  handleChange = e => {
+  handleInputChange = e => {
     this.setState({
       searchValue: e.target.value
     });
@@ -33,6 +34,30 @@ class Search extends Component {
     });
     this.props.setLocation(e.target.innerText);
     this.resetSearch();
+  };
+
+  handleInputKeyDown = e => {
+    const { cursor, autoCompleteResults } = this.state;
+    if (e.keyCode === 38 && cursor > 0) {
+      this.setState({
+        cursor: this.state.cursor - 1
+      });
+    } else if (
+      e.keyCode === 40 &&
+      cursor < this.state.autoCompleteResults.length - 1
+    ) {
+      this.setState(prevState => ({
+        cursor: prevState.cursor + 1
+      }));
+    } else if (e.keyCode === 13) {
+      e.preventDefault();
+      this.setState({
+        searchValue: autoCompleteResults[cursor],
+        cursor: -1
+      });
+      this.props.setLocation(autoCompleteResults[cursor]);
+      this.resetSearch();
+    }
   };
 
   resetSearch = () => {
@@ -57,7 +82,7 @@ class Search extends Component {
   }
 
   render() {
-    const { autoCompleteResults, searchValue } = this.state;
+    const { autoCompleteResults, searchValue, cursor } = this.state;
     return (
       <div className="search-container">
         <div className="search-wrapper">
@@ -77,7 +102,8 @@ class Search extends Component {
                 type="search"
                 placeholder="Denver, CO..."
                 value={this.state.searchValue}
-                onChange={e => this.handleChange(e)}
+                onChange={e => this.handleInputChange(e)}
+                onKeyDown={e => this.handleInputKeyDown(e)}
               />
               {searchValue.length > 0 && (
                 <div className="autocomplete-list">
@@ -85,8 +111,8 @@ class Search extends Component {
                     return (
                       <div
                         key={`result${i}`}
-                        className="item"
                         onClick={e => this.handleSuggestionClick(e)}
+                        className={cursor === i ? 'item active' : 'item'}
                       >
                         {result}
                       </div>
