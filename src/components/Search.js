@@ -33,8 +33,8 @@ class Search extends Component {
     this.setState({
       searchValue: e.target.innerText
     });
-    // this.props.setLocation(e.target.innerText);
-    // this.resetSearch();
+    this.props.setLocation(e.target.innerText);
+    this.resetSearch();
   };
 
   handleInputKeyDown = e => {
@@ -54,7 +54,7 @@ class Search extends Component {
         searchValue: autoCompleteResults[cursor + 1]
       });
       console.log(autoCompleteResults[cursor + 1]);
-    } else if (e.keyCode === 13) {
+    } else if (e.keyCode === 13 && cursor > -1) {
       e.preventDefault();
       this.setState({
         cursor: -1,

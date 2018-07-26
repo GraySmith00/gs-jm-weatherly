@@ -26,12 +26,12 @@ class App extends Component {
     };
   }
 
-  apiCall = (location) => {
+  apiCall = location => {
     const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
     return fetch(url)
       .then(res => res.json())
-      .then(data => {    
-        this.setLocationState(data, location)
+      .then(data => {
+        this.setLocationState(data, location);
         this.setLocalStorage(location);
       })
       .catch(error => {
@@ -39,12 +39,11 @@ class App extends Component {
           notFoundError: true
         });
       });
-
   };
 
   setLocation = location => {
     location = location.replace(' ', '_');
-    this.apiCall(location)
+    this.apiCall(location);
   };
 
   setLocationState = (data, location) => {
@@ -56,7 +55,7 @@ class App extends Component {
       tenDay: cleanTenDayData(data),
       notFoundError: false
     });
-  }
+  };
 
   showTenDayDisplay = () => {
     this.setState({
@@ -82,7 +81,13 @@ class App extends Component {
   }
 
   render() {
-    let { currentWeather, sevenHour, tenDay, notFoundError } = this.state;
+    let {
+      currentWeather,
+      sevenHour,
+      tenDay,
+      notFoundError,
+      tenDayDisplay
+    } = this.state;
 
     if (this.state.location) {
       return (
@@ -107,11 +112,22 @@ class App extends Component {
             <div className="container">
               <CurrentWeather currentWeather={currentWeather} />
               <div className="toggle-display">
-                <p onClick={this.showSevenHourDisplay}>7-hour</p>
+                <p
+                  onClick={this.showSevenHourDisplay}
+                  style={tenDayDisplay ? null : { fontWeight: 400 }}
+                >
+                  7-hour
+                </p>
                 <p>|</p>
-                <p onClick={this.showTenDayDisplay}>10-day</p>
+                <p
+                  onClick={this.showTenDayDisplay}
+                  style={tenDayDisplay ? { fontWeight: 400 } : null}
+                  className="ten-day"
+                >
+                  10-day
+                </p>
               </div>
-              {this.state.tenDayDisplay ? (
+              {tenDayDisplay ? (
                 <TenDay tenDayData={tenDay} />
               ) : (
                 <SevenHour sevenHourData={sevenHour} />
