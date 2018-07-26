@@ -26,21 +26,12 @@ class App extends Component {
     };
   }
 
-  setLocation = location => {
-    location = location.replace(' ', '_');
+  apiCall = (location) => {
     const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
-    fetch(url)
+    return fetch(url)
       .then(res => res.json())
-      .then(data => {
-        const currentWeather = currentWeatherData(data);
-
-        this.setState({
-          location,
-          currentWeather,
-          sevenHour: cleanSevenHourData(data),
-          tenDay: cleanTenDayData(data),
-          notFoundError: false
-        });
+      .then(data => {    
+        this.setLocationState(data, location)
         this.setLocalStorage(location);
       })
       .catch(error => {
@@ -48,7 +39,24 @@ class App extends Component {
           notFoundError: true
         });
       });
+
   };
+
+  setLocation = location => {
+    location = location.replace(' ', '_');
+    this.apiCall(location)
+  };
+
+  setLocationState = (data, location) => {
+    const currentWeather = currentWeatherData(data);
+    this.setState({
+      location,
+      currentWeather,
+      sevenHour: cleanSevenHourData(data),
+      tenDay: cleanTenDayData(data),
+      notFoundError: false
+    });
+  }
 
   showTenDayDisplay = () => {
     this.setState({
@@ -75,8 +83,6 @@ class App extends Component {
 
   render() {
     let { currentWeather, sevenHour, tenDay, notFoundError } = this.state;
-
-    console.log(tenDay);
 
     if (this.state.location) {
       return (
