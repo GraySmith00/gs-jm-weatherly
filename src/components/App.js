@@ -75,7 +75,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    let location = JSON.parse(localStorage.getItem('location')) || null;
+    let location = JSON.parse(localStorage.getItem('location') || null);
     if (location) {
       this.setLocation(location);
     }
