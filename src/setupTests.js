@@ -3,22 +3,30 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-class LocalStorage {
-  constructor() {
-    this.store = {};
-  }
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  clear: jest.fn()
+};
 
-  getItem(key) {
-    return this.store[key];
-  }
+global.localStorage = localStorageMock;
 
-  setItem(key, string) {
-    this.store[key] = string;
-  }
+// class LocalStorage {
+//   constructor() {
+//     this.store = {};
+//   }
 
-  clear() {
-    this.store = {};
-  }
-}
+//   getItem(key) {
+//     return this.store[key];
+//   }
 
-global.localStorage = new LocalStorage;
+//   setItem(key, string) {
+//     this.store[key] = string;
+//   }
+
+//   clear() {
+//     this.store = {};
+//   }
+// }
+
+// global.localStorage = new LocalStorage;
