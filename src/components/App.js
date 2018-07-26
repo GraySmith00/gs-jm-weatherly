@@ -26,9 +26,18 @@ class App extends Component {
     };
   }
 
-  apiCall = location => {
+  setLocation = location => {
+    location = location.replace(' ', '_');
+    this.handleApiCall(location);
+  };
+
+  fetchData = location => {
     const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
-    return fetch(url)
+    return fetch(url);
+  };
+
+  handleApiCall = location => {
+    this.fetchData(location)
       .then(res => res.json())
       .then(data => {
         this.setLocationState(data, location);
@@ -39,11 +48,6 @@ class App extends Component {
           notFoundError: true
         });
       });
-  };
-
-  setLocation = location => {
-    location = location.replace(' ', '_');
-    this.apiCall(location);
   };
 
   setLocationState = (data, location) => {

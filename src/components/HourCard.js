@@ -2,13 +2,13 @@ import React from 'react';
 import '../css/HourCard.css';
 
 function HourCard(props) {
-  return (
-    <div className="hour-card">
-      <p className="hour-day">{props.hour}</p>
-      <img src={require(`../images/${props.icon}.png`)} alt="" />
-      <p className="hour-temp">{props.temp}</p>
-    </div>
-  );
+	return (
+		<div className="hour-card">
+			<p className="hour-day">{props.hour}</p>
+			<img src={require(`../images/${props.icon}.png`)} alt="" />
+			<p className="hour-temp">{props.temp}</p>
+		</div>
+	);
 }
 
 export default HourCard;
