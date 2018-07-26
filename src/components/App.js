@@ -75,11 +75,11 @@ class App extends Component {
   };
 
   setLocalStorage = location => {
-    localStorage.setItem('location', JSON.stringify(location));
+    localStorage.setItem('location', location);
   };
 
   componentDidMount() {
-    let location = JSON.parse(localStorage.getItem('location') || null);
+    let location = localStorage.getItem('location') || null;
     if (location) {
       this.setLocation(location);
     }

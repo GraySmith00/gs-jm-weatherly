@@ -1,8 +1,9 @@
 import React from 'react';
+// import ReactDom from 'react-dom'
 import { shallow, mount } from 'enzyme';
 
 import App from '../components/App';
-import data from '../utils/mockData'
+import data from '../utils/mockData';
 
 describe('App', () => {
 	let wrapper;
@@ -33,7 +34,6 @@ describe('App', () => {
 
 	beforeEach(() => {
 		localStorage.clear();
-		localStorage.setItem('location', 'Denver');
 		wrapper = shallow(<App />);
 	});
 
@@ -52,22 +52,11 @@ describe('App', () => {
 		});
 	});
 
-	it.skip('should retrieve data from localStorage on mount', () => {
-		// const location = localStorage.getItem('location');
-		// wrapper = mount(<App />);
-		// wrapper.setState({
-		// 	location: location
-		// });
+	it('should save location to localStorage', () => {
+		wrapper.instance().setLocalStorage('Denver_CO');
 
-		// expect(wrapper.state().location).toEqual('Denver');
-
-		localStorage.setItem('location', 'Denver_CO');
-    wrapper = mount(<App />);
-    console.log(wrapper.state())
-		expect(wrapper.state().location).toEqual('Denver_CO');
+		expect(localStorage.getItem('location')).toEqual('Denver_CO');
 	});
-
-
 
 	it('should render seven CurrentWeather component', () => {
 		wrapper.setState(mockState);
@@ -94,28 +83,25 @@ describe('App', () => {
 	});
 
 	it('should set a location for weather data', () => {
-    let mockFn = jest.fn();
+		let mockFn = jest.fn();
 
-    wrapper.instance().handleApiCall = mockFn
+		wrapper.instance().handleApiCall = mockFn;
 
-    wrapper.instance().setLocation(location);
+		wrapper.instance().setLocation(location);
 
 		expect(wrapper.instance().handleApiCall).toHaveBeenCalled();
-
 	});
 
-  it('should set location state', () => {
-   wrapper.instance().setLocationState(data, 'Denver_CO')
+	it('should set location state', () => {
+		wrapper.instance().setLocationState(data, 'Denver_CO');
 
-   expect(wrapper.state().location).toEqual('Denver_CO')
-   expect(wrapper.state().currentWeather.currentCondition).toEqual('Mostly Cloudy')
+		expect(wrapper.state().location).toEqual('Denver_CO');
+		expect(wrapper.state().currentWeather.currentCondition).toEqual(
+			'Mostly Cloudy'
+		);
+	});
 
-  });
-
-	it.skip('should render a welcome page if no location has been set', () => {
-
-
-  });
+	it.skip('should render a welcome page if no location has been set', () => {});
 
 	it.skip('should persist location in local storage', () => {});
 });
