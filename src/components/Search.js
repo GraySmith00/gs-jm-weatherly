@@ -16,7 +16,6 @@ class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(e);
     this.props.setLocation(this.state.searchValue);
     this.resetSearch();
   };
