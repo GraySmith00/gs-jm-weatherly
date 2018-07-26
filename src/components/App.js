@@ -33,6 +33,7 @@ class App extends Component {
 
   fetchData = location => {
     const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
+    console.log(fetch(url))
     return fetch(url);
   };
 
