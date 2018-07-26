@@ -32,6 +32,7 @@ describe('App', () => {
 
 	beforeEach(() => {
 		localStorage.clear();
+		localStorage.setItem('location', 'Denver');
 		wrapper = shallow(<App />);
 	});
 
@@ -50,14 +51,18 @@ describe('App', () => {
 		});
 	});
 
-	it.skip('should retrieve data from localStorage on mount', () => {
-		const location = 'Denver_CO';
-
-		localStorage.setItem('location', JSON.stringify(location));
-
+	it('should retrieve data from localStorage on mount', () => {
+		// const location = localStorage.getItem('location');
 		wrapper = mount(<App />);
+		wrapper.setState({
+			location: location
+		});
 
-		expect(wrapper.state().location).toEqual('Denver_CO');
+		expect(wrapper.state().location).toEqual('Denver');
+
+		// localStorage.setItem('location', 'Denver_CO');
+		// wrapper = mount(<App />);
+		// expect(wrapper.state().location).toEqual('Denver_CO');
 	});
 
 	it('should render seven CurrentWeather component', () => {
@@ -84,7 +89,15 @@ describe('App', () => {
 		expect(wrapper.find('TenDay').length).toEqual(1);
 	});
 
-	it.skip('should set a location for weather data', () => {});
+	it.skip('should set a location for weather data', () => {
+		const location = 'Denver_CO';
+
+		wrapper.instance().setLocation(location);
+
+		console.log(wrapper.state());
+
+		expect(wrapper.state().location).toEqual('Denver_CO');
+	});
 
 	it.skip('should render a welcome page if no location has been set', () => {});
 
