@@ -81,7 +81,13 @@ class App extends Component {
   }
 
   render() {
-    let { currentWeather, sevenHour, tenDay, notFoundError } = this.state;
+    let {
+      currentWeather,
+      sevenHour,
+      tenDay,
+      notFoundError,
+      tenDayDisplay
+    } = this.state;
 
     if (this.state.location) {
       return (
@@ -106,13 +112,22 @@ class App extends Component {
             <div className="container">
               <CurrentWeather currentWeather={currentWeather} />
               <div className="toggle-display">
-                <p onClick={this.showSevenHourDisplay}>7-hour</p>
+                <p
+                  onClick={this.showSevenHourDisplay}
+                  style={tenDayDisplay ? null : { fontWeight: 400 }}
+                >
+                  7-hour
+                </p>
                 <p>|</p>
-                <p onClick={this.showTenDayDisplay} className="ten-day">
+                <p
+                  onClick={this.showTenDayDisplay}
+                  style={tenDayDisplay ? { fontWeight: 400 } : null}
+                  className="ten-day"
+                >
                   10-day
                 </p>
               </div>
-              {this.state.tenDayDisplay ? (
+              {tenDayDisplay ? (
                 <TenDay tenDayData={tenDay} />
               ) : (
                 <SevenHour sevenHourData={sevenHour} />
