@@ -7,7 +7,7 @@ function DayCard(props) {
       <p>{props.day}</p>
       <img src={require(`../images/${props.icon}.png`)} alt="weather icon" />
       <div className="expected-temp">
-        <p>{props.high}</p>
+        <p className="temp-high">{props.high}</p>
         <p className="temp-low">{props.low}</p>
       </div>
     </div>

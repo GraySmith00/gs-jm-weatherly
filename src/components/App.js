@@ -76,6 +76,8 @@ class App extends Component {
   render() {
     let { currentWeather, sevenHour, tenDay, notFoundError } = this.state;
 
+    console.log(tenDay);
+
     if (this.state.location) {
       return (
         <div

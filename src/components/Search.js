@@ -16,6 +16,7 @@ class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log(e);
     this.props.setLocation(this.state.searchValue);
     this.resetSearch();
   };
@@ -32,29 +33,34 @@ class Search extends Component {
     this.setState({
       searchValue: e.target.innerText
     });
-    this.props.setLocation(e.target.innerText);
-    this.resetSearch();
+    // this.props.setLocation(e.target.innerText);
+    // this.resetSearch();
   };
 
   handleInputKeyDown = e => {
     const { cursor, autoCompleteResults } = this.state;
     if (e.keyCode === 38 && cursor > 0) {
       this.setState({
-        cursor: this.state.cursor - 1
+        cursor: this.state.cursor - 1,
+        searchValue: autoCompleteResults[cursor + 1]
       });
+      console.log(autoCompleteResults[cursor + 1]);
     } else if (
       e.keyCode === 40 &&
       cursor < this.state.autoCompleteResults.length - 1
     ) {
-      this.setState(prevState => ({
-        cursor: prevState.cursor + 1
-      }));
+      this.setState({
+        cursor: this.state.cursor + 1,
+        searchValue: autoCompleteResults[cursor + 1]
+      });
+      console.log(autoCompleteResults[cursor + 1]);
     } else if (e.keyCode === 13) {
       e.preventDefault();
       this.setState({
-        searchValue: autoCompleteResults[cursor],
-        cursor: -1
+        cursor: -1,
+        searchValue: autoCompleteResults[cursor + 1]
       });
+      // console.log(autoCompleteResults[cursor + 1]);
       this.props.setLocation(autoCompleteResults[cursor]);
       this.resetSearch();
     }
