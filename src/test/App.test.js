@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import App from '../components/App';
+import data from '../utils/mockData'
 
 describe('App', () => {
 	let wrapper;
@@ -51,19 +52,22 @@ describe('App', () => {
 		});
 	});
 
-	it('should retrieve data from localStorage on mount', () => {
+	it.skip('should retrieve data from localStorage on mount', () => {
 		// const location = localStorage.getItem('location');
-		wrapper = mount(<App />);
-		wrapper.setState({
-			location: location
-		});
-
-		expect(wrapper.state().location).toEqual('Denver');
-
-		// localStorage.setItem('location', 'Denver_CO');
 		// wrapper = mount(<App />);
-		// expect(wrapper.state().location).toEqual('Denver_CO');
+		// wrapper.setState({
+		// 	location: location
+		// });
+
+		// expect(wrapper.state().location).toEqual('Denver');
+
+		localStorage.setItem('location', 'Denver_CO');
+    wrapper = mount(<App />);
+    console.log(wrapper.state())
+		expect(wrapper.state().location).toEqual('Denver_CO');
 	});
+
+
 
 	it('should render seven CurrentWeather component', () => {
 		wrapper.setState(mockState);
@@ -89,17 +93,29 @@ describe('App', () => {
 		expect(wrapper.find('TenDay').length).toEqual(1);
 	});
 
-	it.skip('should set a location for weather data', () => {
-		const location = 'Denver_CO';
+	it('should set a location for weather data', () => {
+    let mockFn = jest.fn();
 
-		wrapper.instance().setLocation(location);
+    wrapper.instance().handleApiCall = mockFn
 
-		console.log(wrapper.state());
+    wrapper.instance().setLocation(location);
 
-		expect(wrapper.state().location).toEqual('Denver_CO');
+		expect(wrapper.instance().handleApiCall).toHaveBeenCalled();
+
 	});
 
-	it.skip('should render a welcome page if no location has been set', () => {});
+  it('should set location state', () => {
+   wrapper.instance().setLocationState(data, 'Denver_CO')
+
+   expect(wrapper.state().location).toEqual('Denver_CO')
+   expect(wrapper.state().currentWeather.currentCondition).toEqual('Mostly Cloudy')
+
+  });
+
+	it.skip('should render a welcome page if no location has been set', () => {
+
+
+  });
 
 	it.skip('should persist location in local storage', () => {});
 });
