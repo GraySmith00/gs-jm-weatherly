@@ -1,7 +1,6 @@
 .search-container {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
 }
 
 .search-wrapper {
@@ -100,4 +99,10 @@ input[type='submit'] {
 }
 .active {
   background: rgba(250, 250, 250, 0.9);
+}
+
+@media only screen and (max-width: 550px) {
+  .search-container {
+    margin-bottom: 1em;
+  }
 }

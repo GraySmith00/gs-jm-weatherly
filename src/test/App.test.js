@@ -58,31 +58,29 @@ describe('App', () => {
 		});
 	});
 
+	it('should set a location for weather data', () => {
+		let mockFn = jest.fn();
+
+		wrapper.instance().handleApiCall = mockFn;
+
+		wrapper.instance().setLocation(location);
+
+		expect(wrapper.instance().handleApiCall).toHaveBeenCalled();
+	});
+
+	it('should set location state', () => {
+		wrapper.instance().setLocationState(data, 'Denver_CO');
+
+		expect(wrapper.state().location).toEqual('Denver_CO');
+		expect(wrapper.state().currentWeather.currentCondition).toEqual(
+			'Mostly Cloudy'
+		);
+	});
+
 	it('should save location to localStorage', () => {
 		wrapper.instance().setLocalStorage('Denver_CO');
 
 		expect(localStorage.getItem('location')).toEqual('Denver_CO');
-	});
-
-	it.skip('should retrieve data from local storage on mount', () => {
-		let mockFn = jest.fn();
-		// let location = wrapper.instance().state.location
-
-		wrapper.instance().setLocalStorage = mockFn;
-
-		expect(wrapper.state().location).toEqual('');
-
-
-		wrapper.instance().setState(mockState);
-		// console.log(location)
-
-		// console.log(wrapper.instance().state.location)
-		wrapper.instance().setLocalStorage(location);
-
-
-		wrapper = shallow(<App />);
-
-		expect(wrapper.state().location).toEqual('Denver_CO');
 	});
 
 	it('should render seven CurrentWeather component', () => {
@@ -109,31 +107,9 @@ describe('App', () => {
 		expect(wrapper.find('TenDay').length).toEqual(1);
 	});
 
-	it('should set a location for weather data', () => {
-		let mockFn = jest.fn();
-
-		wrapper.instance().handleApiCall = mockFn;
-
-		wrapper.instance().setLocation(location);
-
-		expect(wrapper.instance().handleApiCall).toHaveBeenCalled();
-	});
-
-	it('should set location state', () => {
-		wrapper.instance().setLocationState(data, 'Denver_CO');
-
-		expect(wrapper.state().location).toEqual('Denver_CO');
-		expect(wrapper.state().currentWeather.currentCondition).toEqual(
-			'Mostly Cloudy'
-		);
-	});
-
 	it('should render a welcome page if no location has been set', () => {
-		wrapper = shallow(<App />)
-
+		wrapper = shallow(<App />);
 
 		expect(wrapper.find('Search').length).toEqual(1);
 	});
-
-	it.skip('should persist location in local storage', () => {});
 });

@@ -6,8 +6,6 @@ import TenDay from '../components/TenDay';
 describe('TenDayForecast', () => {
 	let wrapper;
 
-	let mockData = [{}];
-
 	beforeEach(() => {
 		wrapper = shallow(<TenDay tenDayData={[]} />);
 	});

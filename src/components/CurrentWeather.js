@@ -47,11 +47,3 @@ function CurrentWeather(props) {
 }
 
 export default CurrentWeather;
-
-//        city={city}
-//        currentCondition={currentCondition}
-//        currentTemp={currentTemp}
-//        expHigh={expHigh}
-//        expLow={expLow}
-//        summar={summary}
-//
