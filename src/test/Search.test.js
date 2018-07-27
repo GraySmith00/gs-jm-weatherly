@@ -1,10 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 
 import Search from '../components/Search';
 import citiesList from '../utils/citiesList';
 import { PrefixTrie } from 'complete-me';
-import { wrap } from 'module';
 
 describe('Search', () => {
 	let wrapper;
@@ -15,6 +15,12 @@ describe('Search', () => {
 		wrapper = shallow(
 			<Search setLocation={setLocation} notFoundError={notFoundError} />
 		);
+	});
+
+	it('renders without crashing', () => {
+		const div = document.createElement('div');
+		ReactDOM.render(<Search />, div);
+		ReactDOM.unmountComponentAtNode(div);
 	});
 
 	it('should exist', () => {
@@ -59,7 +65,10 @@ describe('Search', () => {
 		wrapper.find('.search-form').simulate('submit');
 
 		expect(wrapper.props().setLocation).toHaveBeenCalled();
+		expect(wrapper.props().setLocation).toHaveBeenCalledWith('Denver');
 	});
+
+	it('should not add any suggestions if the input length is less than 1', () => {});
 
 	it('should generate a list of suggestions when typing', () => {
 		let mockFn = jest.fn();
