@@ -43,7 +43,6 @@ class Search extends Component {
         cursor: this.state.cursor - 1,
         searchValue: autoCompleteResults[cursor + 1]
       });
-      console.log(autoCompleteResults[cursor + 1]);
     } else if (
       e.keyCode === 40 &&
       cursor < this.state.autoCompleteResults.length - 1
@@ -52,7 +51,6 @@ class Search extends Component {
         cursor: this.state.cursor + 1,
         searchValue: autoCompleteResults[cursor + 1]
       });
-      console.log(autoCompleteResults[cursor + 1]);
     } else if (e.keyCode === 13 && cursor > -1) {
       e.preventDefault();
       this.setState({
@@ -92,7 +90,7 @@ class Search extends Component {
         <div className="search-wrapper">
           {this.props.notFoundError && (
             <p className="error-text">
-              Location not found 😢... use 'City, ST'
+              Location not found <span role="img" aria-label="sad-face">😢</span>... use 'City, ST'
             </p>
           )}
           <form
