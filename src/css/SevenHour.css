@@ -13,3 +13,8 @@
   font-weight: 100;
 }
 
+@media only screen and (max-width: 550px) {
+  .seven-hour-list {
+    flex-direction: column;
+  }
+}

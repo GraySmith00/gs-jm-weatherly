@@ -116,23 +116,25 @@ class App extends Component {
               </div>
             </div>
             <div className="container">
-              <CurrentWeather currentWeather={currentWeather} />
-              <div className="toggle-display">
-                <p
-                  onClick={this.showSevenHourDisplay}
-                  style={tenDayDisplay ? null : { fontWeight: 400 }}
-                >
-                  7-hour
-                </p>
-                <p>|</p>
-                <p
-                  onClick={this.showTenDayDisplay}
-                  style={tenDayDisplay ? { fontWeight: 400 } : null}
-                  className="ten-day"
-                >
-                  10-day
-                </p>
-              </div>
+              <main className="main-content">
+                <CurrentWeather currentWeather={currentWeather} />
+                <div className="toggle-display">
+                  <p
+                    onClick={this.showSevenHourDisplay}
+                    style={tenDayDisplay ? null : { fontWeight: 400 }}
+                  >
+                    7-hour
+                  </p>
+                  <p>|</p>
+                  <p
+                    onClick={this.showTenDayDisplay}
+                    style={tenDayDisplay ? { fontWeight: 400 } : null}
+                    className="ten-day"
+                  >
+                    10-day
+                  </p>
+                </div>
+              </main>
               {tenDayDisplay ? (
                 <TenDay tenDayData={tenDay} />
               ) : (

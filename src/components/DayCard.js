@@ -4,11 +4,13 @@ import '../css/DayCard.css';
 function DayCard(props) {
 	return (
 		<div className="day-card">
-			<p>{props.day}</p>
-			<img src={require(`../images/${props.icon}.png`)} alt="weather icon" />
-			<div className="expected-temp">
-				<p className="temp-high">{props.high}</p>
-				<p className="temp-low">{props.low}</p>
+			<div className="card-container">
+				<p className="day-text">{props.day}</p>
+				<img src={require(`../images/${props.icon}.png`)} alt="weather icon" />
+				<div className="expected-temp">
+					<p className="temp-high">{props.high}</p>
+					<p className="temp-low">{props.low}</p>
+				</div>
 			</div>
 		</div>
 	);

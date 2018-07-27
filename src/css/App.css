@@ -56,6 +56,7 @@ body {
   font-size: 1.5em;
   justify-content: space-between;
   width: 19%;
+  min-width: 10rem;
   font-weight: 100;
 }
 
@@ -87,4 +88,24 @@ body {
   font-family: 'Pacifico', sans-serif;
   margin-bottom: 0.5em;
   font-size: 4em;
+}
+
+@media only screen and (max-width: 1050px) {
+  .container {
+    width: 100%;
+  }
+  .main-content {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .header-container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .header-container h2 {
+    font-size: 1em;
+  }
 }
