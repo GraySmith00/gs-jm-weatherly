@@ -8,7 +8,8 @@ function CurrentWeather(props) {
 		currentTempF,
 		icon,
 		expHigh,
-		expLow
+		expLow,
+		summary
 	} = props.currentWeather;
 
 	return (
@@ -40,6 +41,7 @@ function CurrentWeather(props) {
 					<p className="low-temp">{expLow}</p>
 				</div>
 			</div>
+			<p className="summary">{summary}</p>
 		</div>
 	);
 }
