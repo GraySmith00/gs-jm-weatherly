@@ -144,10 +144,17 @@ class App extends Component {
     }
 
     return (
-      <Search
-        setLocation={this.setLocation}
-        setLocalStorage={this.setLocalStorage}
-      />
+      <section className="welcome-container">
+        <div className="welcome-overlay">
+          <h1 className="welcome-title">Weatherly</h1>
+          <div className="search-welcome-wrapper">
+            <Search
+              setLocation={this.setLocation}
+              setLocalStorage={this.setLocalStorage}
+            />
+          </div>
+        </div>
+      </section>
     );
   }
 }
