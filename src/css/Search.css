@@ -7,8 +7,12 @@
 .search-wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
+}
+
+.brand {
+  font-family: pacifico, sans-serif;
 }
 
 .error-text {

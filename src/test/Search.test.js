@@ -61,6 +61,47 @@ describe('Search', () => {
 		expect(wrapper.props().setLocation).toHaveBeenCalled();
 	});
 
+	it('should generate a list of suggestions when typing', () => {
+		let mockFn = jest.fn();
+
+		wrapper = mount(
+			<Search setLocation={mockFn} notFoundError={notFoundError} />
+		);
+
+		wrapper
+			.find('.search-input')
+			.simulate('change', { target: { value: 'Den' } });
+
+		expect(wrapper.state().autoCompleteResults).toEqual([
+			'Denver, co',
+			'Denton, tx'
+		]);
+	});
+
+	// it('should call setLocation method when autocomplete item is arrowed down to and entered', () => {
+	// 	let mockFn = jest.fn();
+	// 	wrapper.instance().handleInputKeyDown = mockFn;
+
+	// 	wrapper = mount(
+	// 		<Search setLocation={mockFn} notFoundError={notFoundError} />
+	// 	);
+
+	// 	wrapper.find('.search-input').simulate('click');
+
+	// 	wrapper
+	// 		.find('.search-input')
+	// 		.simulate('change', { target: { value: 'De' } });
+
+	// 	wrapper.simulate('keydown', { keyCode: 40 });
+	// 	wrapper.simulate('keydown', { keyCode: 40 });
+
+	// 	// wrapper.simulate('keydown', { keyCode: 13 });
+
+	// 	console.log(wrapper.state());
+
+	// 	// expect(wrapper.instance().handleInputKeyDown).toHaveBeenCalled();
+	// });
+
 	it('clear input field after submit', () => {
 		wrapper
 			.find('.search-input')
