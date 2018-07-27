@@ -1,5 +1,5 @@
 import React from 'react';
-// import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 
 import App from '../components/App';
@@ -41,6 +41,12 @@ describe('App', () => {
 		expect(wrapper).toBeDefined();
 	});
 
+	it('renders without crashing', () => {
+		const div = document.createElement('div');
+		ReactDOM.render(<App />, div);
+		ReactDOM.unmountComponentAtNode(div);
+	});
+
 	it('should have an initial state', () => {
 		expect(wrapper.state()).toEqual({
 			location: '',
@@ -59,18 +65,18 @@ describe('App', () => {
 	});
 
 	it.skip('should retrieve data from local storage on mount', () => {
-		expect(wrapper.state().location).toEqual('')
+		expect(wrapper.state().location).toEqual('');
 
 		wrapper.instance().setState({
 			location: 'Denver_CO'
-		})
+		});
 
 		wrapper.instance().setLocalStorage();
 
-		wrapper = shallow(<App />)
+		wrapper = shallow(<App />);
 
-		expect(wrapper.state().location).toEqual('Denver_CO')		
-	})
+		expect(wrapper.state().location).toEqual('Denver_CO');
+	});
 
 	it('should render seven CurrentWeather component', () => {
 		wrapper.setState(mockState);
@@ -78,7 +84,7 @@ describe('App', () => {
 		expect(wrapper.find('CurrentWeather').length).toEqual(1);
 	});
 
-	it('should render a Search component', () => {
+	it('should render a App component', () => {
 		expect(wrapper.find('Search').length).toEqual(1);
 	});
 

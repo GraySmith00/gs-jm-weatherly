@@ -15,7 +15,6 @@ body {
 }
 
 .app {
-  /*height: 100vh; */ 
   width: 100%;
   margin: 0 auto;
   background-size: cover;
@@ -36,7 +35,14 @@ body {
   height: 100%;
 }
 
-.header-container,
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 65%;
+}
+
 .container {
   margin: 0 auto;
   display: flex;
@@ -55,10 +61,10 @@ body {
 
 .toggle-display p {
   margin-bottom: 0.5em;
+  cursor: pointer;
 }
 
 .welcome-container {
-
   background-image: url(../images/background/welcome-background.jpg);
   background-repeat: none;
   height: 100vh;
@@ -73,19 +79,12 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .welcome-title {
-  color: rgba(255,255,255, 0.9);
-  font-family: 'Pacifico', sans-serif; 
-  margin-bottom: .5em;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Pacifico', sans-serif;
+  margin-bottom: 0.5em;
   font-size: 4em;
 }
-
-@media only screen and (max-width: 1000px) {
-    .app {
-        height: 100%;
-    }
-}
-

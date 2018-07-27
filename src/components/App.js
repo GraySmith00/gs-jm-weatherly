@@ -33,7 +33,7 @@ class App extends Component {
 
   fetchData = location => {
     const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
-    console.log(fetch(url))
+    console.log(fetch(url));
     return fetch(url);
   };
 
@@ -108,6 +108,7 @@ class App extends Component {
           <div className="overlay">
             <div className="header">
               <div className="header-container">
+                <h2 className="brand">Weatherly</h2>
                 <Search
                   setLocation={this.setLocation}
                   notFoundError={notFoundError}
