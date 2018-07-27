@@ -90,7 +90,6 @@ class Search extends Component {
     return (
       <div className="search-container">
         <div className="search-wrapper">
-          <h2 className="brand">Weatherly</h2>
           {this.props.notFoundError && (
             <p className="error-text">
               Location not found 😢... use 'City, ST'

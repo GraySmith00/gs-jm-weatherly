@@ -35,7 +35,14 @@ body {
   height: 100%;
 }
 
-.header-container,
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 65%;
+}
+
 .container {
   margin: 0 auto;
   display: flex;
