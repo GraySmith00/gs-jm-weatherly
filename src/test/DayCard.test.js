@@ -18,7 +18,7 @@ describe('DayCard', () => {
 
 	it('should render with the correct HTML', () => {
 		const dayCard = wrapper.find('.day-card');
-		const dayCardDay = wrapper.find('.day-card > p');
+		const dayCardDay = wrapper.find('.day-text');
 		const dayCardImg = wrapper.find('img');
 		const dayCardHigh = wrapper.find('.temp-high');
 		const dayCardLow = wrapper.find('.temp-low');
