@@ -58,6 +58,20 @@ describe('App', () => {
 		expect(localStorage.getItem('location')).toEqual('Denver_CO');
 	});
 
+	it.skip('should retrieve data from local storage on mount', () => {
+		expect(wrapper.state().location).toEqual('')
+
+		wrapper.instance().setState({
+			location: 'Denver_CO'
+		})
+
+		wrapper.instance().setLocalStorage();
+
+		wrapper = shallow(<App />)
+
+		expect(wrapper.state().location).toEqual('Denver_CO')		
+	})
+
 	it('should render seven CurrentWeather component', () => {
 		wrapper.setState(mockState);
 

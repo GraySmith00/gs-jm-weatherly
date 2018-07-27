@@ -79,7 +79,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    let location = localStorage.getItem('location') || null;
+    let location = localStorage.getItem('location');
     if (location) {
       this.setLocation(location);
     }
