@@ -43,7 +43,7 @@ describe('Search', () => {
 		expect(wrapper.find('input[type="submit"]').exists()).toEqual(true);
 	});
 
-	it('it should bind state to input value (handleInputChange)', () => {
+	it('it should bind searchValue state to input value', () => {
 		wrapper
 			.find('.search-input')
 			.simulate('change', { target: { value: 'Denver' } });
@@ -68,8 +68,6 @@ describe('Search', () => {
 		expect(wrapper.props().setLocation).toHaveBeenCalledWith('Denver');
 	});
 
-	it('should not add any suggestions if the input length is less than 1', () => {});
-
 	it('should generate a list of suggestions when typing', () => {
 		let mockFn = jest.fn();
 
@@ -86,30 +84,6 @@ describe('Search', () => {
 			'Denton, tx'
 		]);
 	});
-
-	// it('should call setLocation method when autocomplete item is arrowed down to and entered', () => {
-	// 	let mockFn = jest.fn();
-	// 	wrapper.instance().handleInputKeyDown = mockFn;
-
-	// 	wrapper = mount(
-	// 		<Search setLocation={mockFn} notFoundError={notFoundError} />
-	// 	);
-
-	// 	wrapper.find('.search-input').simulate('click');
-
-	// 	wrapper
-	// 		.find('.search-input')
-	// 		.simulate('change', { target: { value: 'De' } });
-
-	// 	wrapper.simulate('keydown', { keyCode: 40 });
-	// 	wrapper.simulate('keydown', { keyCode: 40 });
-
-	// 	// wrapper.simulate('keydown', { keyCode: 13 });
-
-	// 	console.log(wrapper.state());
-
-	// 	// expect(wrapper.instance().handleInputKeyDown).toHaveBeenCalled();
-	// });
 
 	it('clear input field after submit', () => {
 		wrapper
