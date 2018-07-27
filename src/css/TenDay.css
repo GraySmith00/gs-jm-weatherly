@@ -12,3 +12,9 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
+
+@media only screen and (max-width: 550px) {
+  .ten-day-list {
+    flex-direction: column;
+  }
+}
