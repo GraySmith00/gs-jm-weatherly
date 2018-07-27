@@ -65,13 +65,20 @@ describe('App', () => {
 	});
 
 	it.skip('should retrieve data from local storage on mount', () => {
+		let mockFn = jest.fn();
+		// let location = wrapper.instance().state.location
+
+		wrapper.instance().setLocalStorage = mockFn;
+
 		expect(wrapper.state().location).toEqual('');
 
-		wrapper.instance().setState({
-			location: 'Denver_CO'
-		});
 
-		wrapper.instance().setLocalStorage();
+		wrapper.instance().setState(mockState);
+		// console.log(location)
+
+		// console.log(wrapper.instance().state.location)
+		wrapper.instance().setLocalStorage(location);
+
 
 		wrapper = shallow(<App />);
 
@@ -121,7 +128,12 @@ describe('App', () => {
 		);
 	});
 
-	it.skip('should render a welcome page if no location has been set', () => {});
+	it('should render a welcome page if no location has been set', () => {
+		wrapper = shallow(<App />)
+
+
+		expect(wrapper.find('Search').length).toEqual(1);
+	});
 
 	it.skip('should persist location in local storage', () => {});
 });
