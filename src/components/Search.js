@@ -90,7 +90,11 @@ class Search extends Component {
         <div className="search-wrapper">
           {this.props.notFoundError && (
             <p className="error-text">
-              Location not found <span role="img" aria-label="sad-face">😢</span>... use 'City, ST'
+              Location not found{' '}
+              <span role="img" aria-label="sad-face">
+                😢
+              </span>
+              ... use 'City, ST'
             </p>
           )}
           <form
@@ -102,7 +106,7 @@ class Search extends Component {
               <input
                 className="search-input"
                 type="search"
-                placeholder="Denver, CO..."
+                placeholder="Moab, UT..."
                 value={this.state.searchValue}
                 onChange={e => this.handleInputChange(e)}
                 onKeyDown={e => this.handleInputKeyDown(e)}

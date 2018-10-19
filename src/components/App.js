@@ -6,7 +6,6 @@ import {
   cleanSevenHourData,
   cleanTenDayData
 } from '../utils/helpers';
-import { key } from '../variables';
 import SevenHour from './SevenHour';
 import TenDay from './TenDay';
 
@@ -32,7 +31,9 @@ class App extends Component {
   };
 
   fetchData = location => {
-    const url = `http://api.wunderground.com/api/${key}/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
+    const url = `http://api.wunderground.com/api/${
+      process.env.REACT_APP_KEY
+    }/conditions/geolookup/hourly/forecast10day/q/${location}.json`;
     return fetch(url);
   };
 

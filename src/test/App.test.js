@@ -89,7 +89,7 @@ describe('App', () => {
 		expect(wrapper.find('CurrentWeather').length).toEqual(1);
 	});
 
-	it('should render a App component', () => {
+	it('should render a Search component', () => {
 		expect(wrapper.find('Search').length).toEqual(1);
 	});
 
