@@ -4,7 +4,7 @@ Launch App: <a href="https://gs-jm-weatherly.herokuapp.com/">Weatherly</a>
 
 #### By Gray Smith and Jesse McFadden
 
-Weatherly is a dynamic, front-end react application that uses real-time weather data to present the current, 7 hour, and 10 day weather forecasts. It was built using ReactJS.
+Weatherly is a dynamic real-time weather app built in React. Data for this app is pulled from the WeatherUnderground API and the background photo matches the weather. Search autocomplete is implemented with a custom Binary Search Trie and user preferences are saved to local storage. The design for this app was made in Figma.
 
 <img src="https://i.imgur.com/0IJDydV.png" width='600px'>
 
